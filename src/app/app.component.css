@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    box-sizing: border-box;
+    background-image: rgb(11, 12, 11);
+    --navbar-height: 60px;
+    --search-box-width: 50%;
+    --color-pink: rgb(244, 133, 151);
+}
+
+.navbar-container {
+    width: 100%;
+    height: var(--navbar-height);
+    background: white;
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    font-size: 3rem;
+    box-shadow: 0 4px 7px -4px rgba(0,0,0,.2);
+}
+
+.navbar {
+    width: 85%;
+    height: var(--navbar-height);
+    margin-inline: auto;
+}
+
+.navbar-header {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    /* letter-spacing: 1px; */
+    font-weight: 700;
+    color: rgb(239, 86, 101);
+    /* font-family: "Poppins", sans-serif; */
+}
+
+.header-logo {
+    height: var(--navbar-height);
+}
+.navbar-items {
+    display: flex;
+    gap: 2rem;
+
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    height: var(--navbar-height);
+    align-items: center;
+}
+
+.nav-item {
+    list-style: none;
+    width: 1em;
+    height: 1em;
+    /* border: 1px solid balck; */
+    background-color: rgb(246, 240, 240);
+    text-align: center;
+    border-radius: 50%;
+}
+
+.nav-item:hover {
+    background-color: var(--color-pink);
+    color: white;
+}
+
+.search-box {
+    width: var(--search-box-width);
+    /* overflow: hidden; */
+}
+
+.searchProduct {
+    width: 100%;
+    height: 2rem;
+    outline: none;
+    border: 1.5px solid rgb(224, 220, 220);
+    padding: 5px 20px;
+    font-size: 1em;
+    border-radius: 2rem;
+    background: none;
+}
+
+.searchProduct:focus {
+    border: 1.5px solid var(--color-pink);
+}
+
+.searchProduct:focus {
+    outline: none;
+    box-shadow: none;
+}
+.searchProduct {
+    /* font-family: , Arial;  */
+    font-family: "Poppins", FontAwesome, sans-serif;
+    font-style: normal
+}
+
+.cart {
+    position: relative;
+}
+.cart-count {
+    position: absolute;
+    font-size: 0.6rem;
+    width: 0.8rem;
+    aspect-ratio: 1;
+    background: var(--color-pink);
+    border-radius: 50%;
+    right: -0.2rem;
+    top: -0.5rem;
+    color: white;
+}
+
+
+
+/* .rest-body {
+    background-color: green;
+}
+.test {
+    height: 10rem;
+    border: 2px solid black;
+}  */
