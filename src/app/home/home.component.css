@@ -44,6 +44,58 @@
 }
 
 /* discount section styling */
-/* .discount-sec {
-  background: green;
+
+.carousel-container {
+  --carousel-container-height: 28rem;
+  position: relative;
+  height: var(--carousel-container-height);
+}
+.carousel-img {
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+
+.carousel-img > img {
+  width: 100%;
+  height: var(--carousel-container-height);
+  object-fit: cover;
+}
+
+.image-active {
+  display: block;
+}
+
+.dot-container {
+  position: absolute;
+  /* height: var(--carousel-container-height); */
+  left: 0;
+  right: 0;
+  bottom: 1em;
+  padding: 0;
+  /* background-color: green; */
+  display: flex;
+  justify-content: center;
+  gap: 0.6em;
+  --dot-radius: 0.7em;
+}
+.dot {
+  width: var(--dot-radius);
+  height: var(--dot-radius);
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: opacity 0.6s ease;
+  opacity: 0.5;
+}
+
+.active,
+.dot:hover {
+  opacity: 1;
+}
+
+/* 
+.flash-deal {
+  height: 40rem;
+  background-color: green;
 } */

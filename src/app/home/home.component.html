@@ -58,7 +58,33 @@
         </ul>
       </div>
 
-      <div class="col-md-8 discount-sec"></div>
+      <!-- discount section -->
+      <div class="col-md-8 carousel-container">
+        <!-- carousel image div -->
+        <div
+          class="carousel-img"
+          *ngFor="let image of images; let i = index"
+          [ngClass]="{ 'image-active': selectedImageIndex === i }"
+        >
+          <img [src]="image.imageSrc" [alt]="image.imageAlt"/>
+        </div>
+
+        <!-- carousel dot div -->
+        <div class="dot-container">
+          <span
+            *ngFor="let dot of images; let i = index"
+            class="dot"
+            [ngClass]="{ active: selectedImageIndex === i }"
+            (click) = "selectImage(i)"
+          ></span>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- flash deal section -->
+  <section class="flash-deal">
+
+  </section>
+
 </div>
