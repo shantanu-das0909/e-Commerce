@@ -23,11 +23,11 @@
     <div class="navbar-content">
       <ul class="navbar-items">
         <li class="nav-item home">
-          <a href="" class="nav-link"><i class="fa-solid fa-house"></i></a>
+          <a routerLink="home" class="nav-link"><i class="fa-solid fa-house"></i></a>
         </li>
         <li class="nav-item cart">
           <div class="cart-count" *ngIf="cartCount != 0">{{ cartCount }}</div>
-          <a href="" class="nav-link"
+          <a routerLink="cart" class="nav-link"
             ><i class="fa-solid fa-cart-shopping"></i
           ></a>
         </li>
@@ -39,7 +39,8 @@
   </nav>
 </div>
 
-
+<!-- router outlet for other component -->
+<router-outlet></router-outlet>
 
 <!-- 
 <div class="rest-body">

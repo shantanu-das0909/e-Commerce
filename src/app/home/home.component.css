@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.home-container {
+  width: 88%;
+  margin-inline: auto;
+  /* background: green; */
+  margin-top: 2rem;
+}
+
+/* category section styling */
+.category-sec {
+  /* background: yellow; */
+  padding: 2rem;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
+  margin-right: 2rem;
+}
+
+.categories {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.category {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.category:hover {
+  opacity: 1;
+}
+
+.categories .category-link {
+  text-decoration: none;
+  color: black;
+}
+
+.categories .category-link i {
+  margin: 0 1rem 0 0;
+}
+
+/* discount section styling */
+/* .discount-sec {
+  background: green;
+} */
