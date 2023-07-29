@@ -2,7 +2,7 @@
   <!-- discount and category section -->
   <section class="category-discount-sec">
     <div class="row">
-      <!-- Left Category -->
+      <!-- Left Category section-->
       <div class="col-md-3 category-sec">
         <ul class="categories">
           <li class="category">
@@ -58,24 +58,33 @@
         </ul>
       </div>
 
-      <!-- discount section -->
+      <!-- Right discount section -->
       <div class="col-md-8 carousel-container">
         <!-- carousel image div -->
         <div
           class="carousel-img"
-          *ngFor="let image of images; let i = index"
+          *ngFor="let product of firstShoppingDiscountsData; let i = index"
           [ngClass]="{ 'image-active': selectedImageIndex === i }"
         >
-          <img [src]="image.imageSrc" [alt]="image.imageAlt"/>
+          <div class="discount-content">
+            <div class="discount-content-desc">
+              <h2>{{ product.discountHeader }}</h2>
+              <p>{{ product.discountDesc }}</p>
+              <a href=""
+                ><button class="view-collection">View Collections</button></a
+              >
+            </div>
+            <img [src]="product.imageSrc" [alt]="product.imageAlt" />
+          </div>
         </div>
 
         <!-- carousel dot div -->
         <div class="dot-container">
           <span
-            *ngFor="let dot of images; let i = index"
+            *ngFor="let dot of firstShoppingDiscountsData; let i = index"
             class="dot"
             [ngClass]="{ active: selectedImageIndex === i }"
-            (click) = "selectImage(i)"
+            (click)="selectImage(i)"
           ></span>
         </div>
       </div>
@@ -84,7 +93,23 @@
 
   <!-- flash deal section -->
   <section class="flash-deal">
+    <h3 class="flash-deal-header">
+      <span><i class="fa-solid fa-bolt"></i></span> Flash Deals
+    </h3>
 
+    <!-- image slider -->
+    
+    <!-- <div class="test" #testRefernce>
+      <div class="slider-test">
+        <div class="test-item item1">item1</div>
+        <div class="test-item item2">item2</div>
+        <div class="test-item item3">item3</div>
+        <div class="test-item item4">item4</div>
+        <div class="test-item item5">item5</div>
+        <div class="test-item item6">item6</div>
+      </div>
+    </div>
+    <button class="btn btn-success" (click)="test()">TEST</button> -->
+  
   </section>
-
 </div>
