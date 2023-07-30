@@ -17,7 +17,7 @@
           </li>
           <li class="category">
             <a href="" class="category-link"
-              ><i class="fa-solid fa-couch"></i>Home & Furniture</a
+              ><i class="fa-solid fa-couch"></i>Furniture</a
             >
           </li>
           <li class="category">
@@ -37,7 +37,7 @@
           </li>
           <li class="category">
             <a href="" class="category-link"
-              ><i class="fa-solid fa-headphones"></i>Headphones</a
+              ><i class="fa-solid fa-headphones"></i>Headphone</a
             >
           </li>
           <li class="category">
@@ -83,7 +83,7 @@
           <span
             *ngFor="let dot of firstShoppingDiscountsData; let i = index"
             class="dot"
-            [ngClass]="{ active: selectedImageIndex === i }"
+            [ngClass]="{ 'active-dot': selectedImageIndex === i }"
             (click)="selectImage(i)"
           ></span>
         </div>
@@ -97,19 +97,53 @@
       <span><i class="fa-solid fa-bolt"></i></span> Flash Deals
     </h3>
 
-    <!-- image slider -->
-    
-    <!-- <div class="test" #testRefernce>
-      <div class="slider-test">
-        <div class="test-item item1">item1</div>
-        <div class="test-item item2">item2</div>
-        <div class="test-item item3">item3</div>
-        <div class="test-item item4">item4</div>
-        <div class="test-item item5">item5</div>
-        <div class="test-item item6">item6</div>
+    <div class="flash-deal-products-container" #flashDealsCardContainer>
+      <div class="card-container">
+        <div
+          class="card"
+          *ngFor="let product of firstShoppingDiscountsData; let i = index"
+        >
+          <img
+            [src]="product.imageSrc"
+            [alt]=""
+            class="card-image"
+          />
+
+          <div class="card-content">
+            <div class="product-description">
+              Lorem ipsum, dolor sit amet cons adipisicing elit. Suscipit
+              dolorem in nostrum officia sapiente consequatur 
+            </div>
+            <div class="product-rating">
+              <span class="rating">3.7 <i class="fa-solid fa-star"></i></span>
+              <span class="people-ordered">(55067)</span>
+            </div>
+            <div class="product-price">
+              <span class="discounted-price"
+                ><i class="fa-solid fa-indian-rupee-sign"></i> 5799</span
+              >
+              <span class="actual-price"
+                ><i class="fa-solid fa-indian-rupee-sign"></i> 7005</span
+              >
+              <span class="discount-percentage">17% off</span>
+              <span class="add-to-cart" (click)="addToCart('productID', i)"><i class="fa-solid fa-cart-plus"></i></span>
+            </div>
+            <div class="alert-message" *ngIf="isAddToCartAlertMessageSuccess && i === addedItemIndex">
+              {{addToCartAlertMessage}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="left-arrow" (click)="onPrevFlashClick()">
+        <i class="fa-solid fa-arrow-left arrow"></i>
+      </div>
+      <div class="right-arrow" (click)="onNextFlashClick()">
+        <i class="fa-solid fa-arrow-right arrow"></i>
       </div>
     </div>
-    <button class="btn btn-success" (click)="test()">TEST</button> -->
-  
   </section>
+
+
+  
 </div>

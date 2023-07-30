@@ -19,6 +19,9 @@ export class HomeComponent implements OnInit {
   selectedImageIndex: number = 0;
   slideInterval = 3000;
   autoSlider: boolean = true;
+  addToCartAlertMessage: string = "";
+  isAddToCartAlertMessageSuccess:boolean = false;
+  addedItemIndex: number = -1;
 
   constructor(private homeService: HomeService) {}
   ngOnInit(): void {
@@ -58,12 +61,43 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // Flash Deals Prev and Next button function
+  @ViewChild('flashDealsCardContainer', {static: true}) flashDealsCardContainer:ElementRef = {} as ElementRef;
+  onNextFlashClick() {
+    let cardContainer = this.flashDealsCardContainer.nativeElement.children[0];
+    let flashDealCards = cardContainer.getElementsByClassName('card');
+    cardContainer.append(flashDealCards[0]);
+  }
 
-  // @ViewChild('testRefernce', {static: true}) testRefernce = {} as ElementRef;
-  // test() {
-  //   // console.log(this.testRefernce.nativeElement);
-  //   let childElm = this.testRefernce.nativeElement.children[0];
-  //   let items = childElm.getElementsByClassName("test-item");
-  //   childElm.append(items[0]);
-  // }
+  onPrevFlashClick() {
+    let cardContainer = this.flashDealsCardContainer.nativeElement.children[0];
+    let flashDealCards = cardContainer.getElementsByClassName('card');
+    cardContainer.prepend(flashDealCards[flashDealCards.length - 1]);
+  }
+
+
+  //show success message
+  showSuccessMessage(message: string, index:number): void {
+    this.isAddToCartAlertMessageSuccess = true;
+    this.addToCartAlertMessage = message;
+    this.addedItemIndex = index;
+    console.log(message);
+    setTimeout(() => {
+      this.addToCartAlertMessage = "";
+      this.isAddToCartAlertMessageSuccess = false;
+      this.addedItemIndex = -1;
+      console.log("Exited");
+    }, 2000);
+  }
+
+
+  //add to cart
+  addToCart(productId: string, index: number) {
+    // call add to cart service function
+
+    //show success message
+    let successAlertMessage = "Added to Cart Successfully !"
+    
+    this.showSuccessMessage(successAlertMessage, index);
+  }
 }
