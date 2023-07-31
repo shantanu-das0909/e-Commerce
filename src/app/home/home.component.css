@@ -2,12 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  --section-gap: 6rem;
+  --section-gap: 4rem;
   --card-width: 14em;
   --card-height: 25rem;
   --card-number: 4;
   --gap-width: 0.1rem;
-  --wrapper-width: calc((var(--card-width) * var(--card-number)) + ((var(--card-number) + 1) * var(--gap-width)));
+  --color-blue: rgb(9, 9, 82);
+  --wrapper-width: calc(
+    (var(--card-width) * var(--card-number)) +
+      ((var(--card-number) + 1) * var(--gap-width))
+  );
   --color-pink: rgb(235, 78, 104);
   --shadow-color: 0deg 0% 0%;
   --shadow-elevation-low: -0.2px 0px 0.2px hsl(var(--shadow-color) / 0.11),
@@ -142,6 +146,8 @@
   opacity: 1;
 }
 
+
+
 /* Flasg Deals Section styling */
 
 .flash-deal {
@@ -160,25 +166,25 @@
   font-size: 1.3em;
   font-weight: 800;
   margin-bottom: 2rem;
-  
 }
 
 .flash-deal-products-container {
   position: relative;
   height: calc(var(--card-height) + 10px);
   width: 100%;
-  
+
   display: grid;
   place-items: center;
 }
 
-.flash-deal-products-container .left-arrow, .right-arrow {
+.flash-deal-products-container .left-arrow,
+.right-arrow {
   position: absolute;
   width: 2em;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  background: rgb(9, 9, 82);
+  background: var(--color-blue);
   color: white;
   border-radius: 50%;
 }
@@ -192,7 +198,7 @@
   top: 45%;
 }
 
-drag-scroll {
+.flash-deal drag-scroll {
   /* height: inherit;
   position: absolute;
   width: 100%;
@@ -209,9 +215,9 @@ drag-scroll {
   width: 90%;
 }
 
-/* .card-container::-webkit-scrollbar {
+.card-container::-webkit-scrollbar {
   display: none;
-} */
+}
 .card {
   --_font-weight: 700;
   width: var(--card-width);
@@ -221,6 +227,7 @@ drag-scroll {
 
   margin-right: 0.5rem;
   margin-left: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .card .card-image {
@@ -297,8 +304,110 @@ drag-scroll {
 
 
 
+/* top categories section */
+
+.top-category {
+  /* height: 100vh; */
+  font-size: 62.5%;
+  margin-top: var(--section-gap);
+}
+
+.top-category-content {
+  width: 100%;
+  /* display: grid;
+  place-items: center; */
+}
+
+.top-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.top-category-header > .header-left > h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.top-category-header > .header-left i {
+  color: var(--color-pink);
+  margin-right: 0.3em;
+}
+.top-category-header > .header-right > a{ 
+  text-decoration: none;
+  color: black;
+}
+.top-category-header > .header-right h5 {
+  font-size: 1em;
+  font-weight: 800;
+  opacity: 0.5;
+}
+
+.top-category .top-category-content drag-scroll {
+  width: 100%;
+  /* padding: 0 3rem; */
+}
 
 
+.category-card {
+  --_category-card-width: 34em;
+  --_category-card-height: 14em;
+  width: var(--_category-card-width);
+  height: var(--_category-card-height);
+  padding: 1em;
+  border: 1px solid rgb(216, 210, 210);
+  border-radius: 2em;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+
+.category-card:hover {
+  border-color: var(--color-pink);
+}
+
+.category-card-images {
+  width: 100%;
+  display: flex;
+  /* padding: 0.5em; */
+  overflow: hidden;
+  /* border: 1px solid red; */
+  position: relative;
+  border-radius: 1em;
+}
+
+.category-name,
+.orders-this-week {
+  position: absolute;
+  height: 1.7em;
+  top: 0.5em;
+}
+
+.category-name {
+  background: var(--color-blue);
+  color: white;
+  border-radius: 1em;
+  padding: 0 1em;
+  left: 0.5em;
+}
+.orders-this-week {
+  right: 0;
+  background: whitesmoke;
+  border-radius: 1em;
+  padding: 0 1em;
+  right: 0.5em;
+}
+
+.category-card-image > img {
+  /* width: 7em;
+  height: 10em; */
+  width: calc((var(--_category-card-width) - 2em) / 3);
+  height: calc(var(--_category-card-height) - 2em);
+  object-fit: cover;
+  /* border: 1px solid red; */
+}
 
 .alert-message {
   /* border: 1px solid green; */
@@ -317,7 +426,6 @@ drag-scroll {
   * {
     --card-number: 3;
   }
-  
 }
 
 @media only screen and (max-width: 790px) {
@@ -346,4 +454,3 @@ drag-scroll {
     width: 70%;
   }
 }
-

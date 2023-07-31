@@ -1,9 +1,18 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { HomeService } from '../services/home.service';
 import { CartService } from '../services/cart.service';
 import { Product } from '../models/product.model';
 import { AppComponent } from '../app.component';
 import { DragScrollComponent } from 'ngx-drag-scroll';
+import { TopCategoryProduct } from '../models/TopCategoryProduct.model';
+import { Router } from '@angular/router';
 
 interface firstShoppingDiscountsData {
   imageSrc: string;
@@ -22,6 +31,8 @@ export class HomeComponent implements OnInit {
   userId: string = '1';
   firstShoppingDiscountsData: firstShoppingDiscountsData[] = [];
   flashDealProducts: Product[] = [];
+  topCategoryData: TopCategoryProduct[] = [];
+
   selectedImageIndex: number = 0;
   slideInterval = 3000;
   autoSlider: boolean = true;
@@ -31,13 +42,16 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private homeService: HomeService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.firstShoppingDiscountsData =
       this.homeService.getDeiscountCarouselData();
     this.flashDealProducts = this.homeService.getFlashDealProducts();
+    this.topCategoryData = this.homeService.getTopCategoryData();
+
     if (this.autoSlider) {
       this.autoSlideImages();
     }
@@ -110,7 +124,7 @@ export class HomeComponent implements OnInit {
 
   //get discounted price
   getDiscountedPrice(actualPrice: number, discount: number): number {
-    let discountedPrice = actualPrice* (1 - (discount / 100));
+    let discountedPrice = actualPrice * (1 - discount / 100);
     return Math.round(discountedPrice);
   }
 
@@ -122,5 +136,11 @@ export class HomeComponent implements OnInit {
     //show success message
     let successAlertMessage = 'Added to Cart Successfully !';
     this.showSuccessMessage(successAlertMessage, index);
+  }
+
+  // redirect to a particular category
+  goToCategory(categoryName: string) {
+    console.log(categoryName);
+    // this.router.navigate(["/cart"]);
   }
 }
