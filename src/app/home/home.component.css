@@ -4,7 +4,7 @@
   box-sizing: border-box;
   --section-gap: 6rem;
   --card-width: 14em;
-  --card-height: 26rem;
+  --card-height: 25rem;
   --card-number: 4;
   --gap-width: 0.1rem;
   --wrapper-width: calc((var(--card-width) * var(--card-number)) + ((var(--card-number) + 1) * var(--gap-width)));
@@ -146,7 +146,7 @@
 
 .flash-deal {
   margin-top: var(--section-gap);
-  height: 90vh;
+  /* height: 70vh; */
   /* background-color: green; */
 }
 
@@ -220,7 +220,7 @@
 
 .card .card-image {
   width: var(--card-width);
-  aspect-ratio: 1;
+  height: calc(var(--card-width) - 2rem);
   object-fit: contain;
   padding: 1rem;
 }
@@ -259,6 +259,7 @@
 
 .card .card-content .product-price {
   font-weight: var(--_font-weight);
+  font-size: 0.9em;
 }
 .card .card-content .product-price .actual-price {
   margin: 0 15px;
@@ -299,7 +300,7 @@
   color: green;
   font-weight: 700;
   font-size: 0.8em;
-  padding: 0.1rem 1rem;
+  padding: 0 1rem;
   bottom: 0;
 }
 

@@ -59,7 +59,7 @@
     background-color: rgb(246, 240, 240);
     text-align: center;
     border-radius: 50%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .nav-item:hover {

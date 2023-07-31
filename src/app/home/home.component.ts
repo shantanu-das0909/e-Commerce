@@ -1,5 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { HomeService } from '../services/home.service';
+import { CartService } from '../services/cart.service';
+import { Product } from '../models/product.model';
+import { AppComponent } from '../app.component';
 
 interface firstShoppingDiscountsData {
   imageSrc: string;
@@ -15,17 +18,25 @@ interface firstShoppingDiscountsData {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  userId: string = '1';
   firstShoppingDiscountsData: firstShoppingDiscountsData[] = [];
+  flashDealProducts: Product[] = [];
   selectedImageIndex: number = 0;
   slideInterval = 3000;
   autoSlider: boolean = true;
-  addToCartAlertMessage: string = "";
-  isAddToCartAlertMessageSuccess:boolean = false;
+  addToCartAlertMessage: string = '';
+  isAddToCartAlertMessageSuccess: boolean = false;
   addedItemIndex: number = -1;
 
-  constructor(private homeService: HomeService) {}
+  constructor(
+    private homeService: HomeService,
+    private cartService: CartService
+  ) {}
+
   ngOnInit(): void {
-    this.firstShoppingDiscountsData = this.homeService.getDeiscountCarouselData();
+    this.firstShoppingDiscountsData =
+      this.homeService.getDeiscountCarouselData();
+    this.flashDealProducts = this.homeService.getFlashDealProducts();
     if (this.autoSlider) {
       this.autoSlideImages();
     }
@@ -54,7 +65,10 @@ export class HomeComponent implements OnInit {
 
   //move to next image
   onNextClick(): void {
-    if (this.selectedImageIndex === this.firstShoppingDiscountsData.length - 1) {
+    if (
+      this.selectedImageIndex ===
+      this.firstShoppingDiscountsData.length - 1
+    ) {
       this.selectedImageIndex = 0;
     } else {
       this.selectedImageIndex++;
@@ -62,7 +76,8 @@ export class HomeComponent implements OnInit {
   }
 
   // Flash Deals Prev and Next button function
-  @ViewChild('flashDealsCardContainer', {static: true}) flashDealsCardContainer:ElementRef = {} as ElementRef;
+  @ViewChild('flashDealsCardContainer', { static: true })
+  flashDealsCardContainer: ElementRef = {} as ElementRef;
   onNextFlashClick() {
     let cardContainer = this.flashDealsCardContainer.nativeElement.children[0];
     let flashDealCards = cardContainer.getElementsByClassName('card');
@@ -75,29 +90,31 @@ export class HomeComponent implements OnInit {
     cardContainer.prepend(flashDealCards[flashDealCards.length - 1]);
   }
 
-
   //show success message
-  showSuccessMessage(message: string, index:number): void {
+  showSuccessMessage(message: string, index: number): void {
     this.isAddToCartAlertMessageSuccess = true;
     this.addToCartAlertMessage = message;
     this.addedItemIndex = index;
-    console.log(message);
     setTimeout(() => {
-      this.addToCartAlertMessage = "";
+      this.addToCartAlertMessage = '';
       this.isAddToCartAlertMessageSuccess = false;
       this.addedItemIndex = -1;
-      console.log("Exited");
     }, 2000);
   }
 
+  //get discounted price
+  getDiscountedPrice(actualPrice: number, discount: number): number {
+    let discountedPrice = actualPrice* (1 - (discount / 100));
+    return Math.round(discountedPrice);
+  }
 
   //add to cart
   addToCart(productId: string, index: number) {
     // call add to cart service function
-
+    let product = this.homeService.getFlashDealProductById(productId);
+    this.cartService.addProduct(product, this.userId);
     //show success message
-    let successAlertMessage = "Added to Cart Successfully !"
-    
+    let successAlertMessage = 'Added to Cart Successfully !';
     this.showSuccessMessage(successAlertMessage, index);
   }
 }

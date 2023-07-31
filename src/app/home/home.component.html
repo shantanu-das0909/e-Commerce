@@ -101,32 +101,31 @@
       <div class="card-container">
         <div
           class="card"
-          *ngFor="let product of firstShoppingDiscountsData; let i = index"
+          *ngFor="let product of flashDealProducts; let i = index"
         >
           <img
-            [src]="product.imageSrc"
+            [src]="product.productImageURL"
             [alt]=""
             class="card-image"
           />
 
           <div class="card-content">
             <div class="product-description">
-              Lorem ipsum, dolor sit amet cons adipisicing elit. Suscipit
-              dolorem in nostrum officia sapiente consequatur 
+              {{ product.productDescription }} 
             </div>
             <div class="product-rating">
-              <span class="rating">3.7 <i class="fa-solid fa-star"></i></span>
-              <span class="people-ordered">(55067)</span>
+              <span class="rating">{{ product.productRating }} <i class="fa-solid fa-star"></i></span>
+              <span class="people-ordered">({{ product.peopleOrdered }})</span>
             </div>
             <div class="product-price">
               <span class="discounted-price"
-                ><i class="fa-solid fa-indian-rupee-sign"></i> 5799</span
+                ><i class="fa-solid fa-indian-rupee-sign"></i> {{getDiscountedPrice(product.actualPrice, product.discount)}}</span
               >
               <span class="actual-price"
-                ><i class="fa-solid fa-indian-rupee-sign"></i> 7005</span
+                ><i class="fa-solid fa-indian-rupee-sign"></i> {{ product.actualPrice }} </span
               >
-              <span class="discount-percentage">17% off</span>
-              <span class="add-to-cart" (click)="addToCart('productID', i)"><i class="fa-solid fa-cart-plus"></i></span>
+              <span class="discount-percentage">{{ product.discount}} % off</span>
+              <span class="add-to-cart" (click)="addToCart(product.productId, i)"><i class="fa-solid fa-cart-plus"></i></span>
             </div>
             <div class="alert-message" *ngIf="isAddToCartAlertMessageSuccess && i === addedItemIndex">
               {{addToCartAlertMessage}}
