@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CartComponent } from './cart/cart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    DragScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

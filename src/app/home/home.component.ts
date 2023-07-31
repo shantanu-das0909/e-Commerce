@@ -3,6 +3,7 @@ import { HomeService } from '../services/home.service';
 import { CartService } from '../services/cart.service';
 import { Product } from '../models/product.model';
 import { AppComponent } from '../app.component';
+import { DragScrollComponent } from 'ngx-drag-scroll';
 
 interface firstShoppingDiscountsData {
   imageSrc: string;
@@ -76,18 +77,23 @@ export class HomeComponent implements OnInit {
   }
 
   // Flash Deals Prev and Next button function
-  @ViewChild('flashDealsCardContainer', { static: true })
-  flashDealsCardContainer: ElementRef = {} as ElementRef;
+  // @ViewChild('flashDealsCardContainer', { static: true })
+  // flashDealsCardContainer: ElementRef = {} as ElementRef;
+
+  @ViewChild('flashDealsCardContainer', { read: DragScrollComponent })
+  ds!: DragScrollComponent;
   onNextFlashClick() {
-    let cardContainer = this.flashDealsCardContainer.nativeElement.children[0];
-    let flashDealCards = cardContainer.getElementsByClassName('card');
-    cardContainer.append(flashDealCards[0]);
+    // let cardContainer = this.flashDealsCardContainer.nativeElement.children[0];
+    // let flashDealCards = cardContainer.getElementsByClassName('card');
+    // cardContainer.append(flashDealCards[0]);
+    this.ds.moveRight();
   }
 
   onPrevFlashClick() {
-    let cardContainer = this.flashDealsCardContainer.nativeElement.children[0];
-    let flashDealCards = cardContainer.getElementsByClassName('card');
-    cardContainer.prepend(flashDealCards[flashDealCards.length - 1]);
+    // let cardContainer = this.flashDealsCardContainer.nativeElement.children[0];
+    // let flashDealCards = cardContainer.getElementsByClassName('card');
+    // cardContainer.prepend(flashDealCards[flashDealCards.length - 1]);
+    this.ds.moveLeft();
   }
 
   //show success message

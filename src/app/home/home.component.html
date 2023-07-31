@@ -97,42 +97,57 @@
       <span><i class="fa-solid fa-bolt"></i></span> Flash Deals
     </h3>
 
-    <div class="flash-deal-products-container" #flashDealsCardContainer>
-      <div class="card-container">
+    <div class="flash-deal-products-container">
+      <drag-scroll [scroll-x-wheel-enabled]="true" #flashDealsCardContainer>
         <div
-          class="card"
+          drag-scroll-item
           *ngFor="let product of flashDealProducts; let i = index"
         >
-          <img
-            [src]="product.productImageURL"
-            [alt]=""
-            class="card-image"
-          />
+          <div class="card">
+            <img [src]="product.productImageURL" [alt]="" class="card-image" />
 
-          <div class="card-content">
-            <div class="product-description">
-              {{ product.productDescription }} 
-            </div>
-            <div class="product-rating">
-              <span class="rating">{{ product.productRating }} <i class="fa-solid fa-star"></i></span>
-              <span class="people-ordered">({{ product.peopleOrdered }})</span>
-            </div>
-            <div class="product-price">
-              <span class="discounted-price"
-                ><i class="fa-solid fa-indian-rupee-sign"></i> {{getDiscountedPrice(product.actualPrice, product.discount)}}</span
+            <div class="card-content">
+              <div class="product-description">
+                {{ product.productDescription }}
+              </div>
+              <div class="product-rating">
+                <span class="rating"
+                  >{{ product.productRating }} <i class="fa-solid fa-star"></i
+                ></span>
+                <span class="people-ordered"
+                  >({{ product.peopleOrdered }})</span
+                >
+              </div>
+              <div class="product-price">
+                <span class="discounted-price"
+                  ><i class="fa-solid fa-indian-rupee-sign"></i>
+                  {{
+                    getDiscountedPrice(product.actualPrice, product.discount)
+                  }}</span
+                >
+                <span class="actual-price"
+                  ><i class="fa-solid fa-indian-rupee-sign"></i>
+                  {{ product.actualPrice }}
+                </span>
+                <span class="discount-percentage"
+                  >{{ product.discount }} % off</span
+                >
+                <span
+                  class="add-to-cart"
+                  (click)="addToCart(product.productId, i)"
+                  ><i class="fa-solid fa-cart-plus"></i
+                ></span>
+              </div>
+              <div
+                class="alert-message"
+                *ngIf="isAddToCartAlertMessageSuccess && i === addedItemIndex"
               >
-              <span class="actual-price"
-                ><i class="fa-solid fa-indian-rupee-sign"></i> {{ product.actualPrice }} </span
-              >
-              <span class="discount-percentage">{{ product.discount}} % off</span>
-              <span class="add-to-cart" (click)="addToCart(product.productId, i)"><i class="fa-solid fa-cart-plus"></i></span>
-            </div>
-            <div class="alert-message" *ngIf="isAddToCartAlertMessageSuccess && i === addedItemIndex">
-              {{addToCartAlertMessage}}
+                {{ addToCartAlertMessage }}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </drag-scroll>
 
       <div class="left-arrow" (click)="onPrevFlashClick()">
         <i class="fa-solid fa-arrow-left arrow"></i>
@@ -142,7 +157,4 @@
       </div>
     </div>
   </section>
-
-
-  
 </div>
