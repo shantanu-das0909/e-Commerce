@@ -19,7 +19,18 @@
     -0.7px 0px 0.7px -2.9px hsl(var(--shadow-color) / 0.08);
 }
 
-.home-container {
+.home-top-container {
+  width: 88%;
+  margin-inline: auto;
+  /* background: green; */
+  margin-top: 2rem;
+}
+.home-back-color {
+  width: 100%;
+  /* padding: 5px 0; */
+  background-color: whitesmoke;
+}
+.home-rest-container {
   width: 88%;
   margin-inline: auto;
   /* background: green; */
@@ -150,8 +161,8 @@
 
 /* Flasg Deals Section styling */
 
-.flash-deal {
-  margin-top: var(--section-gap);
+.flash-deal, .suggested-for-you {
+  padding-top: var(--section-gap);
   /* height: 70vh; */
   /* background-color: green; */
 }
@@ -162,7 +173,7 @@
   color: var(--color-pink);
 }
 
-.flash-deal > h3 {
+.flash-deal > h3{
   font-size: 1.3em;
   font-weight: 800;
   margin-bottom: 2rem;
@@ -235,6 +246,7 @@
   height: calc(var(--card-width) - 2rem);
   object-fit: contain;
   padding: 1rem;
+  /* border-radius: 30px; */
 }
 
 .card .card-content {
@@ -302,8 +314,6 @@
 
 
 
-
-
 /* top categories section */
 
 .top-category {
@@ -361,7 +371,7 @@
   margin-right: 0.5rem;
   margin-left: 0.5rem;
   cursor: pointer;
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 .category-card:hover {
@@ -409,6 +419,9 @@
   /* border: 1px solid red; */
 }
 
+
+
+
 .alert-message {
   /* border: 1px solid green; */
   width: max-content;
@@ -421,6 +434,14 @@
   padding: 0 1rem;
   bottom: 0;
 }
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 1100px) {
   * {
@@ -438,8 +459,16 @@
   .category-sec {
     display: none;
   }
-  .home-container {
+  .home-top-container {
     margin-top: 0rem;
+  }
+  .home-back-color {
+    margin: 0;
+    padding: 0;
+  }
+  .home-rest-container {
+    margin: 0;
+    padding: 0;
   }
   .carousel-container {
     margin-top: 0rem;
@@ -449,8 +478,27 @@
 @media only screen and (max-width: 600px) {
   * {
     --card-number: 1;
+    --section-gap: 1rem;
   }
   drag-scroll {
-    width: 70%;
+    width: 100%;
+  }
+  .flash-deal-products-container {
+    width: 80%;
+    margin-left: 1.5rem;
+  }
+  .home-back-color {
+    margin: 0;
+    padding: 0;
+  }
+  .home-rest-container {
+    margin-left: 1.5rem;
+    padding: 0;
+  }
+  .carousel-container{
+    width: 98%;
+    margin: 0;
+    padding: 0;
+
   }
 }

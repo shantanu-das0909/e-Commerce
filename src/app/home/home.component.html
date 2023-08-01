@@ -1,4 +1,4 @@
-<div class="home-container">
+<div class="home-top-container">
   <!-- discount and category section -->
   <section class="category-discount-sec">
     <div class="row">
@@ -90,122 +90,134 @@
       </div>
     </div>
   </section>
+</div>
 
-  <!-- flash deal section -->
-  <section class="flash-deal">
-    <h3 class="flash-deal-header">
-      <span><i class="fa-solid fa-bolt"></i></span> Flash Deals
-    </h3>
+<div class="home-back-color">
+  <div class="home-rest-container">
+    <!-- flash deal section -->
+    <section class="flash-deal">
+      <h3 class="flash-deal-header">
+        <span><i class="fa-solid fa-bolt"></i></span> Flash Deals
+      </h3>
 
-    <div class="flash-deal-products-container">
-      <drag-scroll
-        [scroll-x-wheel-enabled]="true"
-        [scrollbar-hidden]="true"
-        #flashDealsCardContainer
-      >
-        <div
-          drag-scroll-item
-          *ngFor="let product of flashDealProducts; let i = index"
+      <div class="flash-deal-products-container">
+        <drag-scroll
+          [scroll-x-wheel-enabled]="true"
+          [scrollbar-hidden]="true"
+          #flashDealsCardContainer
         >
-          <div class="card">
-            <img [src]="product.productImageURL" [alt]="" class="card-image" />
+          <div
+            drag-scroll-item
+            *ngFor="let product of flashDealProducts; let i = index"
+          >
+            <div class="card">
+              <img
+                [src]="product.productImageURL"
+                [alt]=""
+                class="card-image"
+              />
 
-            <div class="card-content">
-              <div class="product-description">
-                {{ product.productDescription }}
-              </div>
-              <div class="product-rating">
-                <span class="rating"
-                  >{{ product.productRating }} <i class="fa-solid fa-star"></i
-                ></span>
-                <span class="people-ordered"
-                  >({{ product.peopleOrdered }})</span
+              <div class="card-content">
+                <div class="product-description">
+                  {{ product.productDescription }}
+                </div>
+                <div class="product-rating">
+                  <span class="rating"
+                    >{{ product.productRating }} <i class="fa-solid fa-star"></i
+                  ></span>
+                  <span class="people-ordered"
+                    >({{ product.peopleOrdered }})</span
+                  >
+                </div>
+                <div class="product-price">
+                  <span class="discounted-price"
+                    ><i class="fa-solid fa-indian-rupee-sign"></i>
+                    {{
+                      getDiscountedPrice(product.actualPrice, product.discount)
+                    }}</span
+                  >
+                  <span class="actual-price"
+                    ><i class="fa-solid fa-indian-rupee-sign"></i>
+                    {{ product.actualPrice }}
+                  </span>
+                  <span class="discount-percentage"
+                    >{{ product.discount }} % off</span
+                  >
+                  <span
+                    class="add-to-cart"
+                    (click)="addToCart(product.productId, i)"
+                    ><i class="fa-solid fa-cart-plus"></i
+                  ></span>
+                </div>
+                <div
+                  class="alert-message"
+                  *ngIf="isAddToCartAlertMessageSuccess && i === addedItemIndex"
                 >
-              </div>
-              <div class="product-price">
-                <span class="discounted-price"
-                  ><i class="fa-solid fa-indian-rupee-sign"></i>
-                  {{
-                    getDiscountedPrice(product.actualPrice, product.discount)
-                  }}</span
-                >
-                <span class="actual-price"
-                  ><i class="fa-solid fa-indian-rupee-sign"></i>
-                  {{ product.actualPrice }}
-                </span>
-                <span class="discount-percentage"
-                  >{{ product.discount }} % off</span
-                >
-                <span
-                  class="add-to-cart"
-                  (click)="addToCart(product.productId, i)"
-                  ><i class="fa-solid fa-cart-plus"></i
-                ></span>
-              </div>
-              <div
-                class="alert-message"
-                *ngIf="isAddToCartAlertMessageSuccess && i === addedItemIndex"
-              >
-                {{ addToCartAlertMessage }}
+                  {{ addToCartAlertMessage }}
+                </div>
               </div>
             </div>
           </div>
+        </drag-scroll>
+
+        <div class="left-arrow" (click)="onPrevFlashClick()">
+          <i class="fa-solid fa-arrow-left arrow"></i>
         </div>
-      </drag-scroll>
+        <div class="right-arrow" (click)="onNextFlashClick()">
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </div>
+      </div>
+    </section>
 
-      <div class="left-arrow" (click)="onPrevFlashClick()">
-        <i class="fa-solid fa-arrow-left arrow"></i>
+    <!-- top categories section -->
+    <section class="top-category">
+      <!-- top category header -->
+      <!-- <i class="fa-solid fa-table-cells-large"></i> -->
+      <div class="top-category-header">
+        <div class="header-left">
+          <h3>
+            <span><i class="fa-brands fa-squarespace"></i></span> Top Categories
+          </h3>
+        </div>
+        <div class="header-right">
+          <a href="">
+            <h5>
+              View all <span><i class="fa-solid fa-play"></i></span>
+            </h5>
+          </a>
+        </div>
       </div>
-      <div class="right-arrow" (click)="onNextFlashClick()">
-        <i class="fa-solid fa-arrow-right arrow"></i>
-      </div>
-    </div>
-  </section>
 
-  <!-- top categories section -->
-  <section class="top-category">
-    <!-- top category header -->
-    <!-- <i class="fa-solid fa-table-cells-large"></i> -->
-    <div class="top-category-header">
-      <div class="header-left">
-        <h3>
-          <span><i class="fa-brands fa-squarespace"></i></span> Top Categories
-        </h3>
-      </div>
-      <div class="header-right">
-        <a href="">
-          <h5>
-            View all <span><i class="fa-solid fa-play"></i></span>
-          </h5>
-        </a>
-      </div>
-    </div>
-
-    <!-- top categories content -->
-    <div class="top-category-content">
-      <drag-scroll [scroll-x-wheel-enabled]="true" [scrollbar-hidden]="true">
-        <div
-          class="category-card"
-          drag-scroll-item
-          *ngFor="let categoryCard of topCategoryData; let i = index"
-        >
-          <div (click)="goToCategory(categoryCard.categoryName)" class="category-card-images">
-            <div class="category-name">{{ categoryCard.categoryName }}</div>
-            <div class="orders-this-week">
-              {{ categoryCard.ordersInWeek }} orders this week
-            </div>
-            <div class="category-card-image">
-              <img [src]="categoryCard.images.image1URL" alt="" />
-            </div>
-            <div class="category-card-image">
-              <img [src]="categoryCard.images.image2URL" alt="" />
-            </div>
-            <div class="category-card-image">
-              <img [src]="categoryCard.images.image3URL" alt="" />
+      <!-- top categories content -->
+      <div class="top-category-content">
+        <drag-scroll [scroll-x-wheel-enabled]="true" [scrollbar-hidden]="true">
+          <div
+            class="category-card"
+            drag-scroll-item
+            *ngFor="let categoryCard of topCategoryData; let i = index"
+          >
+            <div
+              (click)="goToCategory(categoryCard.categoryName)"
+              class="category-card-images"
+            >
+              <div class="category-name">{{ categoryCard.categoryName }}</div>
+              <div class="orders-this-week">
+                {{ categoryCard.ordersInWeek }} orders this week
+              </div>
+              <div class="category-card-image">
+                <img [src]="categoryCard.images.image1URL" alt="" />
+              </div>
+              <div class="category-card-image">
+                <img [src]="categoryCard.images.image2URL" alt="" />
+              </div>
+              <div class="category-card-image">
+                <img [src]="categoryCard.images.image3URL" alt="" />
+              </div>
             </div>
           </div>
-        </div>
-      </drag-scroll>
-    </div>
-  </section>
+        </drag-scroll>
+      </div>
+    </section>
+
+  </div>
 </div>

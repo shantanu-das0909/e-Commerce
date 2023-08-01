@@ -1,1 +1,61 @@
-<p>cart works!</p>
+<div class="cart-container">
+  <div class="cart-content">
+    <div class="row">
+      <!-- delivery address & cart items -->
+      <div class="cart-left col-md-8">
+        <!-- delivery address -->
+        <div class="address">
+          <div class="pin-code">Deliver to: <b>Hooghly - 710382</b></div>
+          <div class="change-button">Change</div>
+        </div>
+
+        <!-- cart items -->
+        <div class="cart-items">
+          <div class="item" *ngFor="let item of cartItems; let i = index">
+
+            <!-- item card upper part -->
+            <div class="row item-upper">
+                <div class="item-image col-md-2">
+              <img
+                [src]="item.productImageURL"
+                alt=""
+              />
+            </div>
+            <div class="item-content col-md-6">
+              <div class="item-description">
+                {{ item.productDescription }}
+              </div>
+              <div class="item-seller">Seller: &nbsp; SAPHEDretail</div>
+              <div class="item-price">
+                <span class="discounted-price"
+                  ><i class="fa-solid fa-indian-rupee-sign"></i> 3000</span
+                >
+                <span class="actual-price"
+                  ><i class="fa-solid fa-indian-rupee-sign"></i>
+                  5000
+                </span>
+                <span class="discount-percentage">20% off</span>
+              </div>
+            </div>
+            <div class="delivery-date col-md-3">Delivery by Mon Aug 7</div>
+            </div>
+
+            <!-- item card lower part -->
+            <div class="mt-5 item-lower">
+                <div class="item-inc-dec">
+                    <span class="minus" (click)="decreaseItemCountByOne(item.productId)"><i class="fa-solid fa-minus"></i></span>
+                    <span class="item-count">{{getItemCount(item.productId)}}</span>
+                    <span class="plus" (click)="increaseItemCountByOne(item.productId)"><i class="fa-solid fa-plus"></i></span>
+                </div>
+                <div class="save-for-later">SAVE FOR LATER</div>
+                <div class="remove-item">REMOVE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- price detail -->
+      <div class="price-detail col-md-3"></div>
+    </div>
+  </div>
+</div>

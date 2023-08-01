@@ -28,7 +28,7 @@ interface firstShoppingDiscountsData {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  userId: string = '1';
+  userId: string = '';
   firstShoppingDiscountsData: firstShoppingDiscountsData[] = [];
   flashDealProducts: Product[] = [];
   topCategoryData: TopCategoryProduct[] = [];
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
       this.homeService.getDeiscountCarouselData();
     this.flashDealProducts = this.homeService.getFlashDealProducts();
     this.topCategoryData = this.homeService.getTopCategoryData();
-
+    this.userId = this.homeService.userId;
     if (this.autoSlider) {
       this.autoSlideImages();
     }

@@ -13,13 +13,19 @@ export class CartService {
 
   productInCartMap = new Map();
 
+  // get products in cart
+  getProductsInCart(userId: string) {
+    return this.productsInCart;
+  }
+
   //add product to cart
   addProduct(product: Product, userId: string) {
-    this.productsInCart.push(product);
+    if(this.getProductCountInCartById(product.productId) === 0){
+      this.productsInCart.push(product);
+    }
     this.productCount = this.productsInCart.length;
 
     this.addCartProductInMap(product.productId, userId);
-    console.log(this.productInCartMap);
   }
 
   // add cart products in a map to get individual count
@@ -30,6 +36,13 @@ export class CartService {
     }
     else {
       this.productInCartMap.set(productId, 1);
+    }
+  }
+
+  removeCartProductInMap(productId: string, userId: string) {
+    let productCountInCart = this.getProductCountInCartById(productId);
+    if( productCountInCart > 1) {
+      this.productInCartMap.set(productId, productCountInCart - 1);
     }
   }
 

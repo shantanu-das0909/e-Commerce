@@ -6,6 +6,9 @@ import { TopCategoryProduct } from '../models/TopCategoryProduct.model';
   providedIn: 'root',
 })
 export class HomeService {
+  
+  userId: string = '1';
+  
   constructor() {}
 
   // discount section data
@@ -90,7 +93,7 @@ export class HomeService {
     ),
     new Product(
       '3',
-      'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c21hcnQlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+      'https://cdn.pixabay.com/photo/2015/08/10/20/17/handbag-883122_640.jpg',
       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque laudantium illum facere harum cumque dolor laboriosam, atque amet iste expedita!',
       'watch',
       3.3,
@@ -100,7 +103,7 @@ export class HomeService {
     ),
     new Product(
       '4',
-      'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c21hcnQlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+      'https://cdn.pixabay.com/photo/2013/07/13/12/17/headphone-159569_640.png',
       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque laudantium illum facere harum cumque dolor laboriosam, atque amet iste expedita!',
       'watch',
       4.5,
@@ -110,7 +113,7 @@ export class HomeService {
     ),
     new Product(
       '5',
-      'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c21hcnQlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+      'https://images.unsplash.com/photo-1545289414-1c3cb1c06238?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fHNob2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque laudantium illum facere harum cumque dolor laboriosam, atque amet iste expedita!',
       'watch',
       4.3,
