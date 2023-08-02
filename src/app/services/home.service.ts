@@ -11,6 +11,11 @@ export class HomeService {
   
   constructor() {}
 
+  getUserId(): string {
+    return this.userId;
+    // return '1';
+  }
+
   // discount section data
   firstShoppingDiscountsData = [
     {

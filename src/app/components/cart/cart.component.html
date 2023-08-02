@@ -25,7 +25,7 @@
               <div class="item-description">
                 {{ item.productDescription }}
               </div>
-              <div class="item-seller">Seller: &nbsp; SAPHEDretail</div>
+              <div class="in-stock">In stock</div>
               <div class="item-price">
                 <span class="discounted-price"
                   ><i class="fa-solid fa-indian-rupee-sign"></i> 3000</span
@@ -41,9 +41,9 @@
             </div>
 
             <!-- item card lower part -->
-            <div class="mt-5 item-lower">
+            <div class="mt-4 item-lower">
                 <div class="item-inc-dec">
-                    <span class="minus" (click)="decreaseItemCountByOne(item.productId)"><i class="fa-solid fa-minus"></i></span>
+                    <span class="minus" [ngClass]="{'minus-disabled': getItemCount(item.productId) === 1}" (click)="decreaseItemCountByOne(item.productId)"><i class="fa-solid fa-minus"></i></span>
                     <span class="item-count">{{getItemCount(item.productId)}}</span>
                     <span class="plus" (click)="increaseItemCountByOne(item.productId)"><i class="fa-solid fa-plus"></i></span>
                 </div>

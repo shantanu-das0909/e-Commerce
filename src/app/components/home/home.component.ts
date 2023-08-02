@@ -6,12 +6,12 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { HomeService } from '../services/home.service';
-import { CartService } from '../services/cart.service';
-import { Product } from '../models/product.model';
-import { AppComponent } from '../app.component';
+import { HomeService } from '../../services/home.service';
+import { CartService } from '../../services/cart.service';
+import { Product } from '../../models/product.model';
+import { AppComponent } from '../../app.component';
 import { DragScrollComponent } from 'ngx-drag-scroll';
-import { TopCategoryProduct } from '../models/TopCategoryProduct.model';
+import { TopCategoryProduct } from '../../models/TopCategoryProduct.model';
 import { Router } from '@angular/router';
 
 interface firstShoppingDiscountsData {
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
       this.homeService.getDeiscountCarouselData();
     this.flashDealProducts = this.homeService.getFlashDealProducts();
     this.topCategoryData = this.homeService.getTopCategoryData();
-    this.userId = this.homeService.userId;
+    this.userId = this.homeService.getUserId();
     if (this.autoSlider) {
       this.autoSlideImages();
     }

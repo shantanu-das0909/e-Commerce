@@ -1,43 +1,4 @@
-<div class="navbar-container">
-  <nav class="navbar">
-    <!-- logo -->
-    <div class="navbar-header">
-      <a href=""><img src="../assets/img/logo.png" alt="" class="header-logo"></a>
-    </div>
-
-    <!-- search bar -->
-    <div class="search-box">
-      <form action="" (submit)="onSubmit()">
-        <input
-          type="text"
-          class="searchProduct"
-          name="searchProduct"
-          id="searchProductID"
-          placeholder="&#xf002; &nbsp; Search for Products, Brands and More"
-          [(ngModel)]="searchItem"
-        />
-      </form>
-    </div>
-
-    <!-- navbar items like home, user profile, cart etc -->
-    <div class="navbar-content">
-      <ul class="navbar-items">
-        <li class="nav-item home">
-          <a routerLink="home" routerLinkActive="active" class="nav-link"><i class="fa-solid fa-house"></i></a>
-        </li>
-        <li class="nav-item cart">
-          <div class="cart-count" *ngIf="cartCount != 0">{{ cartCount }}</div>
-          <a routerLink="cart" routerLinkActive="active" class="nav-link"
-            ><i class="fa-solid fa-cart-shopping"></i
-          ></a>
-        </li>
-        <li class="nav-item user">
-          <a href="" class="nav-link"><i class="fa-solid fa-user"></i></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>
+<app-header></app-header>
 
 <!-- router outlet for other component -->
 <router-outlet></router-outlet>

@@ -1,28 +1,17 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, Component, OnInit } from '@angular/core';
-import { CartService } from './services/cart.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterContentChecked, OnInit {
+export class AppComponent implements OnInit {
   title = 'e-commerce-frontend';
 
-  searchItem: string = '';
-  cartCount: number = 0;
-
-  constructor(private cartService: CartService) {}
+  constructor() {}
   ngOnInit(): void {
-    this.cartCount = this.cartService.productCount;
-  }
-  
-  ngAfterContentChecked(): void {
-    this.cartCount = this.cartService.productCount;
+    // throw new Error('Method not implemented.');
   }
 
-  onSubmit() {
-    // console.log(this.searchItem);
-    // this.cartCount += 1;
-  }
+
 }
