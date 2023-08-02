@@ -5,6 +5,7 @@
   --color-pink: rgb(235, 78, 104);
   --color-blue: rgb(9, 9, 82);
   --section-gap: 2em;
+  --color-white-grey: rgb(221, 217, 217);
 }
 
 .cart-container {
@@ -19,6 +20,11 @@
   /* background-color: white; */
   margin-inline: auto;
   padding-top: var(--section-gap);
+}
+
+.cart-content > .row {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .address {
@@ -44,6 +50,7 @@
   background-color: var(--color-pink);
   color: white;
   border-radius: 5px;
+  cursor: pointer;
 }
 .cart-items {
     margin-top: var(--section-gap);
@@ -72,6 +79,29 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.item-content .in-stock {
+  color: green;
+}
+
+.item-price span {
+  margin-right: 1.5em;
+  font-size: 1.1em;
+}
+
+.item-price .discounted-price{
+  font-size: 1.3em;
+}
+
+.item-price .actual-price {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.item-price .discount-percentage {
+  color: green;
+  font-weight: 700;
 }
 
 .item .item-lower {
@@ -122,4 +152,75 @@
 
 .item-lower .remove-item:hover, .save-for-later:hover {
   color: var(--color-pink);
+}
+
+
+/* -------------price details------------- */
+
+.price-detail-upper {
+  /* border: 1px solid black; */
+  background-color: white;
+  --_padding-in-price-details: 1em;
+  height: max-content;
+  border-radius: 5px;
+
+}
+
+.price-detail h3 {
+  font-size: 1.5em;
+  padding: var(--_padding-in-price-details);
+  border-bottom: 1px solid var(--color-white-grey);
+}
+
+.price-detail .prices {
+  padding: calc(var(--_padding-in-price-details) + 0.5em);
+}
+
+.price-detail .prices .discount-price span:nth-child(2), .delivery-charge span:nth-child(2){
+  color: green;
+}
+
+.price-detail .amount-to-pay, .prices > * {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--_padding-in-price-details) 0;
+  font-size: 1.2em;
+}
+
+.price-detail .amount-to-pay {
+  padding: calc(var(--_padding-in-price-details) + 0.5em);
+  /* border-bottom: 1px solid var(--color-white-grey); */
+  border-top: 1px solid var(--color-white-grey);
+  font-size: 1.3em;
+
+}
+
+.price-detail .place-order {
+  border: none;
+  outline: none;
+  width: 100%;
+  /* border: 1px solid black; */
+  padding: 0.8em 0em;
+  background-color: var(--color-pink);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  margin-top: 1em;
+  /* border-radius: 0; */
+}
+
+.price-detail .order-placed-message {
+  color: green;
+  width: 100%;
+  margin-top: 1em;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.place-order-disabled {
+  opacity: 0.7;
+  pointer-events: none;
 }

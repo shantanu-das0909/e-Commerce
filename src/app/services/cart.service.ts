@@ -57,4 +57,13 @@ export class CartService {
     }
   }
 
+  // remove product from cart
+  removeProductFromCart(productId: string) {
+    for(let i = 0; i < this.productsInCart.length; i++) {
+      if(this.productsInCart[i].productId === productId){
+        this.productsInCart.splice(i, 1);
+      }
+    }
+  }
+
 }

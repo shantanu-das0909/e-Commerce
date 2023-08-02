@@ -12,50 +12,117 @@
         <!-- cart items -->
         <div class="cart-items">
           <div class="item" *ngFor="let item of cartItems; let i = index">
-
             <!-- item card upper part -->
             <div class="row item-upper">
-                <div class="item-image col-md-2">
-              <img
-                [src]="item.productImageURL"
-                alt=""
-              />
-            </div>
-            <div class="item-content col-md-6">
-              <div class="item-description">
-                {{ item.productDescription }}
+              <div class="item-image col-md-2">
+                <img [src]="item.productImageURL" alt="" />
               </div>
-              <div class="in-stock">In stock</div>
-              <div class="item-price">
-                <span class="discounted-price"
-                  ><i class="fa-solid fa-indian-rupee-sign"></i> 3000</span
-                >
-                <span class="actual-price"
-                  ><i class="fa-solid fa-indian-rupee-sign"></i>
-                  5000
-                </span>
-                <span class="discount-percentage">20% off</span>
+              <div class="item-content col-md-6">
+                <div class="item-description">
+                  {{ item.productDescription }}
+                </div>
+                <div class="in-stock">In stock</div>
+                <div class="item-price">
+                  <span class="actual-price"
+                    ><i class="fa-solid fa-indian-rupee-sign"></i
+                    >{{ item.actualPrice }}
+                  </span>
+                  <span class="discounted-price"
+                    ><b
+                      ><i class="fa-solid fa-indian-rupee-sign"></i>
+                      {{
+                        getDiscountAmount(item.actualPrice, item.discount)
+                      }}</b
+                    ></span
+                  >
+                  <span class="discount-percentage"
+                    >{{ item.discount }}% off</span
+                  >
+                </div>
               </div>
-            </div>
-            <div class="delivery-date col-md-3">Delivery by Mon Aug 7</div>
+              <div class="delivery-date col-md-3">Delivery by {{getDeliveryDate()}}</div>
             </div>
 
             <!-- item card lower part -->
             <div class="mt-4 item-lower">
-                <div class="item-inc-dec">
-                    <span class="minus" [ngClass]="{'minus-disabled': getItemCount(item.productId) === 1}" (click)="decreaseItemCountByOne(item.productId)"><i class="fa-solid fa-minus"></i></span>
-                    <span class="item-count">{{getItemCount(item.productId)}}</span>
-                    <span class="plus" (click)="increaseItemCountByOne(item.productId)"><i class="fa-solid fa-plus"></i></span>
-                </div>
-                <div class="save-for-later">SAVE FOR LATER</div>
-                <div class="remove-item">REMOVE</div>
+              <div class="item-inc-dec">
+                <span
+                  class="minus"
+                  [ngClass]="{
+                    'minus-disabled': getItemCountByItemId(item.productId) <= 1
+                  }"
+                  (click)="decreaseItemCountByOne(item.productId)"
+                  ><i class="fa-solid fa-minus"></i
+                ></span>
+                <span class="item-count">{{
+                  getItemCountByItemId(item.productId)
+                }}</span>
+                <span
+                  class="plus"
+                  (click)="increaseItemCountByOne(item.productId)"
+                  ><i class="fa-solid fa-plus"></i
+                ></span>
+              </div>
+              <!-- <div class="save-for-later">SAVE FOR LATER</div> -->
+              <div
+                class="remove-item"
+                (click)="removeItemFromCart(item.productId)"
+              >
+                REMOVE
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- price detail -->
-      <div class="price-detail col-md-3"></div>
+      <div class="price-detail col-md-3">
+        <div class="price-detail-upper">
+          <!-- price header -->
+          <h3>PRICE DETAILS</h3>
+
+          <!-- price amounts -->
+          <div class="prices">
+            <div class="total-price">
+              <span>Price ({{ cartItems.length }} items)</span>
+              <span
+                ><i class="fa-solid fa-indian-rupee-sign"></i>
+                {{ getTotalPrice() }}</span
+              >
+            </div>
+            <div class="discount-price">
+              <span>Discount</span>
+              <span
+                >- <i class="fa-solid fa-indian-rupee-sign"></i>
+                {{ getTotalDiscountedPrice() }}</span
+              >
+            </div>
+            <div class="delivery-charge">
+              <span>Delivery Charges</span>
+              <span>Free</span>
+            </div>
+          </div>
+
+          <div class="amount-to-pay">
+            <span><b>Total Amount</b></span>
+            <span
+              ><b
+                ><i class="fa-solid fa-indian-rupee-sign"></i>
+                {{ getTotalAmountToBePaid() }}</b
+              ></span
+            >
+          </div>
+        </div>
+
+        <button class="place-order" [ngClass]="{'place-order-disabled': cartItems.length <= 0}" (click)="placeOrder()">Place Order</button>
+
+        <div
+          class="order-placed-message"
+          *ngIf="isOrderPlaced && cartItems.length > 0"
+        >
+          {{ orderPlacedMessage }}
+        </div>
+      </div>
     </div>
   </div>
 </div>
