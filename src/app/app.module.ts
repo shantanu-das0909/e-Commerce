@@ -8,13 +8,15 @@ import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { HeaderComponent } from './components/header/header.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CartComponent,
-    HeaderComponent
+    HeaderComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,40 @@
+<div class="category-container">
+
+    <div class="row">
+        <!-- filer section -->
+        <div class="filters-container col-md-3">
+
+            <div class="filters">
+                <div class="filter filter-header"><i class="fa-solid fa-filter"></i><b>FILTERS</b> </div>
+                <div class="filter category-name"><span>CATEGORY</span> <i class="fa-solid fa-chevron-right"></i> Headphone</div>
+                <form>
+                    <div class="filter price-filter">
+                        <p>PRICE</p>
+                        <div class="price-filer-content">
+                            <input type="text" name="minPrice" id="minPrice" placeholder="&#xe1bc; Min">
+                            <span>to</span>
+                            <input type="text" name="maxPrice" id="maxPrice" placeholder="&#xe1bc; Max">
+                        </div>
+                    </div>
+                    <div class="filter brand-filter">
+                        <p>BRAND</p>
+                        <div class="brand-filter-content">
+                            <div class="input-group" *ngFor="let brand of brands">
+                                <input type="checkbox" name="brandInput" id="brandInput" [value]="brand" (change)="getCheckBoxValue($event)">
+                                <span>{{ brand }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter buttons">
+                        <button type="reset" class="clear-btn" (click)="clear()">CLEAR</button>
+                        <button type="submit" class="submit-btn">APPLY</button>
+                    </div>
+                </form>               
+            </div>
+
+        </div>
+        <!-- products -->
+        <div class="products-container col-md-9">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, ratione dicta. Quo quod illum a provident nobis dolore ducimus, doloremque incidunt nostrum sed quisquam asperiores eius, pariatur non unde assumenda sint vero itaque natus error inventore. Iste, perspiciatis voluptatem et hic ut quaerat eum iure explicabo rerum sed, facilis eveniet.</div>
+    </div>
+
+</div>

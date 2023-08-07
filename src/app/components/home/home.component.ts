@@ -13,6 +13,7 @@ import { AppComponent } from '../../app.component';
 import { DragScrollComponent } from 'ngx-drag-scroll';
 import { TopCategoryProduct } from '../../models/TopCategoryProduct.model';
 import { Router } from '@angular/router';
+import { CategoryService } from 'src/app/services/category.service';
 
 interface firstShoppingDiscountsData {
   imageSrc: string;
@@ -43,6 +44,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private homeService: HomeService,
     private cartService: CartService,
+    private categoryService: CategoryService,
     private router: Router
   ) {}
 
@@ -141,6 +143,7 @@ export class HomeComponent implements OnInit {
   // redirect to a particular category
   goToCategory(categoryName: string) {
     console.log(categoryName);
-    // this.router.navigate(["/cart"]);
+    this.categoryService.categoryName = categoryName;
+    this.router.navigate(["/category"]);
   }
 }
