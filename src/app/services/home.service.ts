@@ -84,47 +84,52 @@ export class HomeService {
       3.8,
       5000,
       7113,
-      7.3
+      7.3,
+      'Titan'
     ),
     new Product(
       '2',
       'https://cdn.pixabay.com/photo/2013/07/12/18/39/smartphone-153650_640.png',
       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque laudantium illum facere harum cumque dolor laboriosam, atque amet iste expedita!',
-      'watch',
+      'mobile',
       4.0,
       5000,
       7000,
-      10
+      10,
+      'Apple'
     ),
     new Product(
       '3',
       'https://cdn.pixabay.com/photo/2015/08/10/20/17/handbag-883122_640.jpg',
       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque laudantium illum facere harum cumque dolor laboriosam, atque amet iste expedita!',
-      'watch',
+      'bag',
       3.3,
       1000,
       14000,
-      15
+      15,
+      'Fostelo'
     ),
     new Product(
       '4',
       'https://cdn.pixabay.com/photo/2013/07/13/12/17/headphone-159569_640.png',
       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque laudantium illum facere harum cumque dolor laboriosam, atque amet iste expedita!',
-      'watch',
+      'headphone',
       4.5,
       10000,
       8000,
-      3
+      3,
+      'boat'
     ),
     new Product(
       '5',
       'https://images.unsplash.com/photo-1545289414-1c3cb1c06238?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fHNob2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque laudantium illum facere harum cumque dolor laboriosam, atque amet iste expedita!',
-      'watch',
+      'shoe',
       4.3,
       2000,
-      3000,
-      11
+      6000,
+      10,
+      'nike'
     ),
     new Product(
       '6',
@@ -134,7 +139,8 @@ export class HomeService {
       3.9,
       7000,
       10000,
-      10
+      10,
+      'catio'
     ),
   ];
 

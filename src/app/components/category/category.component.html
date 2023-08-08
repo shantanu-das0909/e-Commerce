@@ -1,40 +1,93 @@
 <div class="category-container">
-
-    <div class="row">
-        <!-- filer section -->
-        <div class="filters-container col-md-3">
-
-            <div class="filters">
-                <div class="filter filter-header"><i class="fa-solid fa-filter"></i><b>FILTERS</b> </div>
-                <div class="filter category-name"><span>CATEGORY</span> <i class="fa-solid fa-chevron-right"></i> Headphone</div>
-                <form>
-                    <div class="filter price-filter">
-                        <p>PRICE</p>
-                        <div class="price-filer-content">
-                            <input type="text" name="minPrice" id="minPrice" placeholder="&#xe1bc; Min">
-                            <span>to</span>
-                            <input type="text" name="maxPrice" id="maxPrice" placeholder="&#xe1bc; Max">
-                        </div>
-                    </div>
-                    <div class="filter brand-filter">
-                        <p>BRAND</p>
-                        <div class="brand-filter-content">
-                            <div class="input-group" *ngFor="let brand of brands">
-                                <input type="checkbox" name="brandInput" id="brandInput" [value]="brand" (change)="getCheckBoxValue($event)">
-                                <span>{{ brand }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filter buttons">
-                        <button type="reset" class="clear-btn" (click)="clear()">CLEAR</button>
-                        <button type="submit" class="submit-btn">APPLY</button>
-                    </div>
-                </form>               
-            </div>
-
+  <div class="row">
+    <!-- filer section -->
+    <div class="filters-container col-3 col-md-3">
+      <div class="filters">
+        <div class="filter filter-header">
+          <i class="fa-solid fa-filter"></i><b>FILTERS</b>
         </div>
-        <!-- products -->
-        <div class="products-container col-md-9">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, ratione dicta. Quo quod illum a provident nobis dolore ducimus, doloremque incidunt nostrum sed quisquam asperiores eius, pariatur non unde assumenda sint vero itaque natus error inventore. Iste, perspiciatis voluptatem et hic ut quaerat eum iure explicabo rerum sed, facilis eveniet.</div>
+        <div class="filter category-name">
+          <span>CATEGORY</span>
+          <i class="fa-solid fa-chevron-right"></i> Headphone
+        </div>
+        <div class="filter price-filter">
+          <p>PRICE</p>
+          <div class="price-filer-content">
+            <input
+              type="text"
+              [(ngModel)]="minFilterPrice"
+              name="minPrice"
+              id="minPrice"
+              placeholder="&#xe1bc; Min"
+            />
+            <span>to</span>
+            <input
+              type="text"
+              [(ngModel)]="maxFilterPrice"
+              name="maxPrice"
+              id="maxPrice"
+              placeholder="&#xe1bc; Max"
+            />
+          </div>
+        </div>
+        <div class="filter brand-filter" *ngIf="brands.length > 0">
+          <p>BRAND</p>
+          <div class="brand-filter-content">
+            <div class="input-group" *ngFor="let brand of brands">
+              <input
+                type="checkbox"
+                name="brandInput"
+                id="brandInput"
+                [value]="brand"
+                (change)="getCheckBoxValue($event)"
+              />
+              <span>{{ brand }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
+    <!-- products -->
+    <div class="products-container col-9 col-md-9">
+      <div class="products">
+        <div
+          class="card"
+          *ngFor="let product of getFilterProducts(); let i = index"
+        >
+          <img [src]="product.productImageURL" [alt]="" class="card-image" />
+          <div class="card-content">
+            <div class="product-description">
+              {{ product.productDescription }}
+            </div>
+            <div class="product-rating">
+              <span class="rating"
+                >{{ product.productRating }} <i class="fa-solid fa-star"></i
+              ></span>
+              <span class="people-ordered">({{ product.peopleOrdered }})</span>
+            </div>
+            <div class="product-price">
+              <span class="discounted-price"
+                ><i class="fa-solid fa-indian-rupee-sign"></i>
+                {{
+                  getDiscountedPrice(product.actualPrice, product.discount)
+                }}</span
+              >
+              <span class="actual-price"
+                ><i class="fa-solid fa-indian-rupee-sign"></i>
+                {{ product.actualPrice }}
+              </span>
+              <span class="discount-percentage"
+                >{{ product.discount }} % off</span
+              >
+              <span
+                class="add-to-cart"
+                (click)="addToCart(product.productId, i)"
+                ><i class="fa-solid fa-cart-plus"></i
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

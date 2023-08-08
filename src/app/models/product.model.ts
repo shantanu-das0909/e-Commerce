@@ -9,5 +9,6 @@ export class Product {
         public peopleOrdered: number,
         public actualPrice: number,
         public discount: number,
+        public brand: string
     ) {}
 }
