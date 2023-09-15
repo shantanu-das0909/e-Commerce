@@ -142,8 +142,8 @@ export class HomeComponent implements OnInit {
 
   // redirect to a particular category
   goToCategory(categoryName: string) {
-    console.log(categoryName);
-    this.categoryService.categoryName = categoryName;
-    this.router.navigate(["/category"]);
+    // console.log(categoryName);
+    // this.categoryService.categoryName = categoryName;
+    this.router.navigate(["/category", categoryName]);
   }
 }

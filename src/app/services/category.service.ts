@@ -6,7 +6,7 @@ import { Product } from '../models/product.model';
 })
 export class CategoryService {
 
-  categoryName: string = 'watch';
+  // categoryName: string = 'watch';
 
   constructor() { }
 
@@ -81,23 +81,23 @@ export class CategoryService {
   ];
 
   // get category name
-  getCategoryName(): string {
-    return this.categoryName;
-  }
+  // getCategoryName(): string {
+  //   return this.categoryName;
+  // }
 
   // get all products belong to a categoy group
-  getCategoryProducts(): Product[] {
+  getCategoryProducts(categoryName: string): Product[] {
     let categoryProducts: Product[] = [];
     this.products.forEach((product) => {
-      if(product.productType === this.categoryName) categoryProducts.push(product);
+      if(product.productType === categoryName) categoryProducts.push(product);
     });
     return categoryProducts;
   }
 
   // get brands for a single category
-  getBrands(): string[] {
+  getBrands(categoryName: string): string[] {
     let brands: string[] = [];
-    let filteredProducts = this.getCategoryProducts();
+    let filteredProducts = this.getCategoryProducts(categoryName);
     filteredProducts.forEach((product) => {
       brands.push(product.brand);
     });

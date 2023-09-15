@@ -62,7 +62,7 @@
     /* overflow: hidden; */
 }
 
-.nav-item:hover {
+.nav-item:hover, .active {
     width: 1em;
     height: 1em;
     background-color: var(--color-pink);

@@ -2,7 +2,7 @@
     <nav class="navbar">
       <!-- logo -->
       <div class="navbar-header">
-        <a href=""><img src="../assets/img/logo.png" alt="" class="header-logo"></a>
+        <a routerLink="home"><img src="../assets/img/logo.png" alt="" class="header-logo"></a>
       </div>
   
       <!-- search bar -->
@@ -22,12 +22,12 @@
       <!-- navbar items like home, user profile, cart etc -->
       <div class="navbar-content">
         <ul class="navbar-items">
-          <li class="nav-item home">
-            <a routerLink="home" routerLinkActive="active" class="nav-link"><i class="fa-solid fa-house"></i></a>
+          <li class="nav-item home" routerLinkActive="active">
+            <a routerLink="home"  class="nav-link"><i class="fa-solid fa-house"></i></a>
           </li>
-          <li class="nav-item cart">
+          <li class="nav-item cart" routerLinkActive="active">
             <div class="cart-count" *ngIf="getCartCount() != 0">{{ getCartCount() }}</div>
-            <a routerLink="cart" routerLinkActive="active" class="nav-link"
+            <a routerLink="cart"  class="nav-link"
               ><i class="fa-solid fa-cart-shopping"></i
             ></a>
           </li>

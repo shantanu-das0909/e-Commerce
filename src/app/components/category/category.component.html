@@ -8,7 +8,7 @@
         </div>
         <div class="filter category-name">
           <span>CATEGORY</span>
-          <i class="fa-solid fa-chevron-right"></i> Headphone
+          <i class="fa-solid fa-chevron-right"></i> {{ categoryName }}
         </div>
         <div class="filter price-filter">
           <p>PRICE</p>
@@ -37,7 +37,6 @@
               <input
                 type="checkbox"
                 name="brandInput"
-                id="brandInput"
                 [value]="brand"
                 (change)="getCheckBoxValue($event)"
               />

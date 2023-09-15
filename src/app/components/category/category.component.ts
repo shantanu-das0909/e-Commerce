@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 import { CategoryService } from 'src/app/services/category.service';
@@ -26,13 +27,22 @@ export class CategoryComponent implements OnInit {
   constructor(
     private categoryService: CategoryService,
     private homeService: HomeService,
-    private cartService: CartService
+    private cartService: CartService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.categoryName = this.categoryService.getCategoryName();
+    // this.categoryName = this.categoryService.getCategoryName();
+    this.categoryName = this.route.snapshot.params['categoryName'];
+    console.log(this.categoryName);
     this.userId = this.homeService.getUserId();
-    this.brands = this.categoryService.getBrands();
+    this.brands = this.categoryService.getBrands(this.categoryName);
+
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.categoryName = params['categoryName'];
+      }
+    );
   }
 
   //get checkbox values from form in template
@@ -51,7 +61,7 @@ export class CategoryComponent implements OnInit {
 
   // apply filter
   getFilterProducts(): Product[] {
-    let allProducts = this.categoryService.getCategoryProducts();
+    let allProducts = this.categoryService.getCategoryProducts(this.categoryName);
     let finalFilteredProducts: Product[] = [];
 
     // applied price filter
