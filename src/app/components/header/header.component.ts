@@ -10,6 +10,7 @@ import { HomeService } from '../../services/home.service';
 export class HeaderComponent implements OnInit{
 
   searchItem: string = '';
+  showUserMenu: boolean = false;
 
   constructor(private cartService: CartService, private homeService: HomeService) {}
   ngOnInit(): void {
@@ -18,6 +19,14 @@ export class HeaderComponent implements OnInit{
   onSubmit() {
     // console.log(this.searchItem);
     // this.cartCount += 1;
+  }
+
+  onMouseOver() {
+    this.showUserMenu = true;
+  }
+
+  closeUserMenu() {
+    this.showUserMenu = false;
   }
 
   getCartCount() {

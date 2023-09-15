@@ -1,40 +1,75 @@
 <div class="navbar-container">
-    <nav class="navbar">
-      <!-- logo -->
-      <div class="navbar-header">
-        <a routerLink="home"><img src="../assets/img/logo.png" alt="" class="header-logo"></a>
-      </div>
-  
-      <!-- search bar -->
-      <div class="search-box">
-        <form action="" (submit)="onSubmit()">
-          <input
-            type="text"
-            class="searchProduct"
-            name="searchProduct"
-            id="searchProductID"
-            placeholder="&#xf002; &nbsp; Search for Products, Brands and More"
-            [(ngModel)]="searchItem"
-          />
-        </form>
-      </div>
-  
-      <!-- navbar items like home, user profile, cart etc -->
-      <div class="navbar-content">
-        <ul class="navbar-items">
-          <li class="nav-item home" routerLinkActive="active">
-            <a routerLink="home"  class="nav-link"><i class="fa-solid fa-house"></i></a>
-          </li>
-          <li class="nav-item cart" routerLinkActive="active">
-            <div class="cart-count" *ngIf="getCartCount() != 0">{{ getCartCount() }}</div>
-            <a routerLink="cart"  class="nav-link"
-              ><i class="fa-solid fa-cart-shopping"></i
-            ></a>
-          </li>
-          <li class="nav-item user">
-            <a href="" class="nav-link"><i class="fa-solid fa-user"></i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+  <nav class="navbar">
+    <!-- logo -->
+    <div class="navbar-header">
+      <a routerLink="home"
+        ><img src="../assets/img/logo.png" alt="" class="header-logo"
+      /></a>
+    </div>
+
+    <!-- search bar -->
+    <div class="search-box">
+      <form action="" (submit)="onSubmit()">
+        <input
+          type="text"
+          class="searchProduct"
+          name="searchProduct"
+          id="searchProductID"
+          placeholder="&#xf002; &nbsp; Search for Products, Brands and More"
+          [(ngModel)]="searchItem"
+        />
+      </form>
+    </div>
+
+    <!-- navbar items like home, user profile, cart etc -->
+    <div class="navbar-content">
+      <ul class="navbar-items">
+        <!-- home -->
+        <li class="nav-item home" routerLinkActive="active">
+          <a routerLink="home" class="nav-link"
+            ><i class="fa-solid fa-house"></i
+          ></a>
+        </li>
+
+        <!-- user account -->
+        <li class="nav-item user" (mouseover)="onMouseOver()">
+          <a class="nav-link"><i class="fa-solid fa-user"></i></a>
+          <!-- <a class="nav-link" *ngIf="showUserMenu"><i class="fa-solid fa-xmark"></i></a> -->
+          <ul class="user-items" [hidden]="!showUserMenu" (mouseout)="closeUserMenu()">
+            <li class="user-item">
+              <a><i class="fa-solid fa-user"></i></a>My Profile
+            </li>
+            <li class="user-item">
+              <a><i class="fa-solid fa-box"></i></a>Orders
+            </li>
+            <li class="user-item">
+              <a><i class="fa-solid fa-heart"></i></a>Wishlist
+            </li>
+            <li class="user-item">
+              <a><i class="fa-solid fa-ticket"></i></a>Coupons
+            </li>
+            <li class="user-item">
+              <a><i class="fa-solid fa-bell"></i></a>Notifications
+            </li>
+            <li class="user-item">
+              <a><i class="fa-solid fa-power-off"></i></a>Logout
+            </li>
+            <li class="user-item" (click)="closeUserMenu()">
+              <a><i class="fa-regular fa-circle-xmark"></i></a> Close
+            </li>
+          </ul>
+        </li>
+
+        <!-- cart -->
+        <li class="nav-item cart" routerLinkActive="active">
+          <div class="cart-count" *ngIf="getCartCount() != 0">
+            {{ getCartCount() }}
+          </div>
+          <a routerLink="cart" class="nav-link"
+            ><i class="fa-solid fa-cart-shopping"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
