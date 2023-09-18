@@ -437,9 +437,53 @@
 
 
 
+/* service */
+
+.services {
+  margin-top: var(--section-gap);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.service {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px -2px black;
+
+}
+
+.service-icon {
+  width: 3.5rem;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  /* margin: 1rem 0; */
+}
+
+.service-name {
+  font-size: 0.9em;
+  font-weight: 600;
+  margin: 1.5em 0;
+}
+
+.service-desc {
+  font-size: 0.7em;
+  text-align: center;
+}
 
 
-
+/* footer */
+.footer1 {
+  margin-top: var(--section-gap);
+}
 
 
 

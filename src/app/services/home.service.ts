@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { TopCategoryProduct } from '../models/TopCategoryProduct.model';
+import { Service } from '../models/service.model';
 
 @Injectable({
   providedIn: 'root',
@@ -196,6 +197,13 @@ export class HomeService {
     }),
   ];
 
+  services: Service[] = [
+    new Service('<i class="fa-solid fa-truck"></i>', 'Worldwide Delivery', 'We offer competitive prices <br> on our 100 million plus product any range'),
+    new Service('<i class="fa-solid fa-credit-card"></i>', 'Safe Payment', 'We offer competitive prices <br> on our 100 million plus product any range'),
+    new Service('<i class="fa-solid fa-shield-halved"></i>', 'Shop With Confidence', 'We offer competitive prices <br> on our 100 million plus product any range'),
+    new Service('<i class="fa-solid fa-headset"></i>', '24/7 Support', 'We offer competitive prices <br> on our 100 million plus product any range')
+  ];
+  
   //returning discount section data
   getDeiscountCarouselData() {
     return this.firstShoppingDiscountsData;
@@ -218,5 +226,10 @@ export class HomeService {
   // to get top category data
   getTopCategoryData(): TopCategoryProduct[] {
     return this.topCategoryData;
+  }
+
+  // get all services
+  getServices(): Service[] {
+    return this.services;
   }
 }

@@ -14,6 +14,7 @@ import { DragScrollComponent } from 'ngx-drag-scroll';
 import { TopCategoryProduct } from '../../models/TopCategoryProduct.model';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
+import { Service } from 'src/app/models/service.model';
 
 interface firstShoppingDiscountsData {
   imageSrc: string;
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
   firstShoppingDiscountsData: firstShoppingDiscountsData[] = [];
   flashDealProducts: Product[] = [];
   topCategoryData: TopCategoryProduct[] = [];
+  services: Service[] = [];
 
   selectedImageIndex: number = 0;
   slideInterval = 3000;
@@ -53,6 +55,7 @@ export class HomeComponent implements OnInit {
       this.homeService.getDeiscountCarouselData();
     this.flashDealProducts = this.homeService.getFlashDealProducts();
     this.topCategoryData = this.homeService.getTopCategoryData();
+    this.services  =this.homeService.getServices();
     this.userId = this.homeService.getUserId();
     if (this.autoSlider) {
       this.autoSlideImages();

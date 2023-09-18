@@ -182,7 +182,8 @@
         <div class="header-right">
           <a href="">
             <h5>
-              View all &nbsp;&nbsp; <span><i class="fa-solid fa-play"></i></span>
+              View all &nbsp;&nbsp;
+              <span><i class="fa-solid fa-play"></i></span>
             </h5>
           </a>
         </div>
@@ -219,5 +220,19 @@
       </div>
     </section>
 
+    <!-- services -->
+    <section class="services">
+      <div class="service" *ngFor="let service of services">
+        <div class="service-icon" [innerHTML]="service.serviceIcon"></div>
+        <div class="service-name">{{ service.serviceName }}</div>
+        <div class="service-desc">
+          {{ service.serviceDescription }}
+        </div>
+      </div>
+    </section>
+
+    <section class="footer1">
+      dfgdgfgd
+    </section>
   </div>
 </div>
