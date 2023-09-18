@@ -225,14 +225,13 @@
       <div class="service" *ngFor="let service of services">
         <div class="service-icon" [innerHTML]="service.serviceIcon"></div>
         <div class="service-name">{{ service.serviceName }}</div>
-        <div class="service-desc">
-          {{ service.serviceDescription }}
-        </div>
+        <div
+          class="service-desc"
+          [innerHTML]="service.serviceDescription"
+        ></div>
       </div>
     </section>
 
-    <section class="footer1">
-      dfgdgfgd
-    </section>
+    <section class="footer1">dfgdgfgd</section>
   </div>
 </div>
