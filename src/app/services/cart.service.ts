@@ -11,7 +11,7 @@ export class CartService {
   productCount: number = 0;
   productsInCart: Product[] = [];
 
-  productInCartMap = new Map();
+  productInCartMap = new Map<string, number>();
 
   // get products in cart
   getProductsInCart(userId: string) {
@@ -62,8 +62,14 @@ export class CartService {
     for(let i = 0; i < this.productsInCart.length; i++) {
       if(this.productsInCart[i].productId === productId){
         this.productsInCart.splice(i, 1);
+        this.productInCartMap.delete(productId);
       }
     }
+  }
+
+  clearCart() {
+    this.productsInCart.splice(0, this.productsInCart.length);
+    this.productInCartMap.clear();
   }
 
 }

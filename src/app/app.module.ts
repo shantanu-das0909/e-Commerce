@@ -9,6 +9,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { HeaderComponent } from './components/header/header.component';
 import { CategoryComponent } from './components/category/category.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CategoryComponent } from './components/category/category.component';
     HomeComponent,
     CartComponent,
     HeaderComponent,
-    CategoryComponent
+    CategoryComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -90,7 +90,8 @@ export class CartComponent implements OnInit {
     setTimeout(() => {
       this.isOrderPlaced = false;
       this.orderPlacedMessage = '';
-    }, 3000);
+      this.cartService.clearCart();
+    }, 2000);
   }
 
   // get dummy delivery date after 7 days

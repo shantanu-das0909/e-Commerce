@@ -441,6 +441,7 @@
 
 .services {
   margin-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;

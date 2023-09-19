@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    box-sizing: border-box;
+    background-image: rgb(11, 12, 11);
+    --footer-height: 20rem;
+    --search-box-width: 50%;
+    --color-pink: rgb(244, 133, 151);
+    --section-gap: 4rem;
+}
+
+.footer-container {
+    width: 100%;
+    /* height: var(--footer-height); */
+    padding: 3rem 0 2rem 0;
+    background-color: rgb(25, 25, 67);
+    color: white;
+}
+
+.footer {
+    width: 88%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    font-size: 2rem;
+    --content-gap: 1.5rem;
+}
+
+.footer > * > h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--content-gap);
+}
+
+.site-desc img {
+    width: 8rem;
+}
+
+.site-desc .footer-btns {
+    font-size: 1rem;
+    display: flex;
+    gap: 1.2rem;
+    margin-top: var(--content-gap);
+}
+
+.site-desc .footer-btns > * {
+    width: max-content;
+    height: max-content;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.site-desc .footer-btns i {
+    font-size: 1rem;
+}
+
+.about-us ul, .customer-care ul{
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+.about-us  ul li , .customer-care ul li {
+    line-height: 2rem;
+    cursor: pointer;
+}
+
+.contact-us > p {
+    margin-bottom: 1.7rem;
+}
