@@ -1,161 +1,182 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-size: 62.5%;
-    box-sizing: border-box;
-    background-image: rgb(11, 12, 11);
-    --navbar-height: 60px;
-    --search-box-width: 50%;
-    --color-pink: rgb(244, 133, 151);
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+  box-sizing: border-box;
+  background-image: rgb(11, 12, 11);
+  --navbar-height: 60px;
+  --search-box-width: 50%;
+  --color-pink: rgb(244, 133, 151);
 
-    /* user menu shadow pallet */
-    --shadow-color: 286deg 36% 56%;
-    --shadow-elevation-medium:
-        0px 0.3px 0.3px hsl(var(--shadow-color) / 0.36),
-        0px 1px 1.1px -0.8px hsl(var(--shadow-color) / 0.36),
-        0px 2.6px 2.9px -1.7px hsl(var(--shadow-color) / 0.36),
-        0px 6.3px 7.1px -2.5px hsl(var(--shadow-color) / 0.36);
+  /* user menu shadow pallet */
+  --shadow-color: 286deg 36% 56%;
+  --search-box-shadow-color: 0deg 0% 0%;
+  --shadow-elevation-low: -0.2px 0px 0.2px hsl(var(--search-box-shadow-color) / 0.11),
+    -0.3px 0px 0.3px -1.5px hsl(var(--search-box-shadow-color) / 0.1),
+    -0.7px 0px 0.7px -2.9px hsl(var(--search-box-shadow-color) / 0.08);
+  --shadow-elevation-medium: 0px 0.3px 0.3px hsl(var(--shadow-color) / 0.36),
+    0px 1px 1.1px -0.8px hsl(var(--shadow-color) / 0.36),
+    0px 2.6px 2.9px -1.7px hsl(var(--shadow-color) / 0.36),
+    0px 6.3px 7.1px -2.5px hsl(var(--shadow-color) / 0.36);
 }
 
 .navbar-container {
-    width: 100%;
-    height: var(--navbar-height);
-    z-index: 999;
-    background: white;
-    position: -webkit-sticky;
-    position: sticky;
-    top:0;
-    font-size: 3rem;
-    box-shadow: 0 4px 7px -4px rgba(0,0,0,.2);
+  width: 100%;
+  height: var(--navbar-height);
+  z-index: 999;
+  background: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-size: 3rem;
+  box-shadow: 0 4px 7px -4px rgba(0, 0, 0, 0.2);
 }
 
 .navbar {
-    width: 88%;
-    height: var(--navbar-height);
-    margin-inline: auto;
+  width: 88%;
+  height: var(--navbar-height);
+  margin-inline: auto;
 }
 
 .navbar-header {
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    /* letter-spacing: 1px; */
-    font-weight: 700;
-    color: rgb(239, 86, 101);
-    /* font-family: "Poppins", sans-serif; */
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  /* letter-spacing: 1px; */
+  font-weight: 700;
+  color: rgb(239, 86, 101);
+  /* font-family: "Poppins", sans-serif; */
 }
 
 .header-logo {
-    height: var(--navbar-height);
+  height: var(--navbar-height);
 }
 .navbar-items {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
+  display: flex;
+  gap: 2rem;
+  list-style: none;
 
-    font-size: 2.5em;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    height: var(--navbar-height);
-    align-items: center;
+  font-size: 2.5em;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  height: var(--navbar-height);
+  align-items: center;
 }
 
 .nav-item {
-    width: 1em;
-    height: 1em;
-    /* border: 1px solid balck; */
-    background-color: rgb(246, 240, 240);
-    text-align: center;
-    border-radius: 50%;
-    /* overflow: hidden; */
-    cursor: pointer;
+  width: 1em;
+  height: 1em;
+  /* border: 1px solid balck; */
+  background-color: rgb(246, 240, 240);
+  text-align: center;
+  border-radius: 50%;
+  /* overflow: hidden; */
+  cursor: pointer;
 }
 
-.nav-item:hover, .active {
-    width: 1em;
-    height: 1em;
-    background-color: var(--color-pink);
-    color: white;
+.nav-item:hover,
+.active {
+  width: 1em;
+  height: 1em;
+  background-color: var(--color-pink);
+  color: white;
 }
 
 .user .user-items {
-    list-style: none;
-    display: absolute;
-    background-color: white;
-    color: black;
-    width: 10em;
-    transform: translateX(-40%) translateY(20px);
-    text-align: left;
-    /* padding: 0.5em 0; */
-    font-size: 1.3rem;
-    outline: 1px solid var(--color-pink);
-    box-shadow: var(--shadow-elevation-medium);
+  list-style: none;
+  display: absolute;
+  background-color: white;
+  color: black;
+  width: 10em;
+  transform: translateX(-40%) translateY(20px);
+  text-align: left;
+  /* padding: 0.5em 0; */
+  font-size: 1.3rem;
+  outline: 1px solid var(--color-pink);
+  box-shadow: var(--shadow-elevation-medium);
 }
 
 .user .user-item {
-    cursor: pointer;
-    height: 3em;
-    display: flex;
-    align-items: center;
-    padding: 0 1.5em;
+  cursor: pointer;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5em;
 }
 
 .user .user-items i {
-    margin-right: 1em;
-    font-size: 1.5em;
-    color: var(--color-pink);
+  margin-right: 1em;
+  font-size: 1.5em;
+  color: var(--color-pink);
 }
 
 .user .user-item:hover {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 .search-box {
-    width: var(--search-box-width);
-    /* overflow: hidden; */
+  width: var(--search-box-width);
+  /* overflow: hidden; */
 }
 
 .searchProduct {
-    width: 100%;
-    height: 2rem;
-    outline: none;
-    border: 1.5px solid rgb(224, 220, 220);
-    padding: 5px 20px;
-    font-size: 1em;
-    border-radius: 2rem;
-    background: none;
+  width: 100%;
+  height: 2rem;
+  outline: none;
+  border: 1.5px solid rgb(224, 220, 220);
+  padding: 5px 20px;
+  font-size: 1em;
+  border-radius: 2rem;
+  background: none;
 }
 
 .searchProduct:focus {
-    border: 1.5px solid var(--color-pink);
+  border: 1.5px solid var(--color-pink);
 }
 
 .searchProduct:focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 .searchProduct {
-    /* font-family: , Arial;  */
-    font-family: "Poppins", FontAwesome, sans-serif;
-    font-style: normal;
+  /* font-family: , Arial;  */
+  font-family: "Poppins", FontAwesome, sans-serif;
+  font-style: normal;
+}
+
+.searchable-products {
+  width: var(--search-box-width);
+  height: max-content;
+  background-color: white;
+  position: absolute;
+  border-radius: 1rem;
+  font-size: 1em;
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.searchable-product {
+  line-height: 2.2em;
+  padding: 0 20px;
+}
+
+.searchable-product:hover {
+  background-color: whitesmoke;
 }
 
 .cart {
-    position: relative;
+  position: relative;
 }
 .cart-count {
-    position: absolute;
-    font-size: 0.6rem;
-    width: 0.8rem;
-    aspect-ratio: 1;
-    background: var(--color-pink);
-    border-radius: 50%;
-    right: -0.2rem;
-    top: -0.5rem;
-    color: white;
+  position: absolute;
+  font-size: 0.6rem;
+  width: 0.8rem;
+  aspect-ratio: 1;
+  background: var(--color-pink);
+  border-radius: 50%;
+  right: -0.2rem;
+  top: -0.5rem;
+  color: white;
 }
-
-
 
 /* .rest-body {
     background-color: green;
