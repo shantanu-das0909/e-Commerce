@@ -34,15 +34,13 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     // this.categoryName = this.categoryService.getCategoryName();
     this.categoryName = this.route.snapshot.params['categoryName'];
-    console.log(this.categoryName);
-    this.userId = this.homeService.getUserId();
-    this.brands = this.categoryService.getBrands(this.categoryName);
 
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.categoryName = params['categoryName'];
-      }
-    );
+    this.route.params.subscribe((params: Params) => {
+      this.categoryName = params['categoryName'];
+      console.log(this.categoryName);
+      this.userId = this.homeService.getUserId();
+      this.brands = this.categoryService.getBrands(this.categoryName);
+    });
   }
 
   //get checkbox values from form in template
@@ -61,7 +59,9 @@ export class CategoryComponent implements OnInit {
 
   // apply filter
   getFilterProducts(): Product[] {
-    let allProducts = this.categoryService.getCategoryProducts(this.categoryName);
+    let allProducts = this.categoryService.getCategoryProducts(
+      this.categoryName
+    );
     let finalFilteredProducts: Product[] = [];
 
     // applied price filter
@@ -74,10 +74,9 @@ export class CategoryComponent implements OnInit {
     );
 
     // applied brand filter
-    if(this.filteredBrand.length != 0) {
+    if (this.filteredBrand.length != 0) {
       finalFilteredProducts = productsAfterAppliedPriceFilter.filter(
-        (product) =>
-          this.filteredBrand.includes(product.brand)
+        (product) => this.filteredBrand.includes(product.brand)
       );
     } else {
       finalFilteredProducts = [...productsAfterAppliedPriceFilter];

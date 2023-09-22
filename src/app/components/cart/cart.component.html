@@ -40,7 +40,9 @@
                   >
                 </div>
               </div>
-              <div class="delivery-date col-md-3">Delivery by {{getDeliveryDate()}}</div>
+              <div class="delivery-date col-md-3">
+                Delivery by {{ getDeliveryDate() }}
+              </div>
             </div>
 
             <!-- item card lower part -->
@@ -72,6 +74,14 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- cart is empty image will be shown is there is no cart item -->
+        <div class="cart-is-empty" [hidden]="cartItems.length > 0">
+          <img
+              src="../../../assets/img/cart-is-empty.png"
+              alt="cart-is-impty"
+            />
         </div>
       </div>
 
@@ -114,7 +124,13 @@
           </div>
         </div>
 
-        <button class="place-order" [ngClass]="{'place-order-disabled': cartItems.length <= 0}" (click)="placeOrder()">Place Order</button>
+        <button
+          class="place-order"
+          [ngClass]="{ 'place-order-disabled': cartItems.length <= 0 }"
+          (click)="placeOrder()"
+        >
+          Place Order
+        </button>
 
         <div
           class="order-placed-message"

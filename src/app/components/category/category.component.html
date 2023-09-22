@@ -46,7 +46,8 @@
         </div>
       </div>
     </div>
-    <!-- products -->
+
+    <!-- products from the category-->
     <div class="products-container col-9 col-md-9">
       <div class="products">
         <div
@@ -87,6 +88,12 @@
           </div>
         </div>
       </div>
+
+      <!-- no search result image-->
+      <div class="no-search-result" [hidden]="getFilterProducts().length">
+        <img src="../../../assets/img/no-search-result.png" alt="">
+      </div>
+
     </div>
   </div>
 </div>

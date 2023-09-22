@@ -10,6 +10,7 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -28,40 +29,47 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private homeService: HomeService
+    private homeService: HomeService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.searchableProducts = [
       'headphone',
-      'bags',
-      'bottles',
-      'mobiles',
-      'mangoes',
-      'shoes',
-      'furnitures',
-      'headphone set',
+      'bag',
+      'bottle',
+      'mobile',
+      'mangoe',
+      'shoe',
+      'furniture',
+      'watch',
     ];
     this.filteredSerachedProducts = this.searchableProducts;
     this.searchProduct();
   }
 
+  // after hit enter or click any one searched item from menu it will go to that category
   getProductsWithSearchedProductName() {
     console.log(this.selectedSearchedProduct);
+    this.onBlur();
+    this.router.navigate(['/search', this.selectedSearchedProduct]);
   }
 
+  // after clicking any searched item from menu it sets the selectedSearchedItem name 
   setSearchedProduct(productName: string) {
     this.selectedSearchedProduct = productName;
     this.showSearchedProducts = false;
     this.getProductsWithSearchedProductName();
   }
 
+  // to get the filtered list of all item with the same name typed in the search bar 
   filterProduct(productName: string) {
     return this.searchableProducts.filter((product) =>
       product.includes(productName)
     );
   }
 
+  // it declair an event for 'keyup' and get the typed name from search bar
   searchProduct() {
     const search$ = fromEvent(this.searchBarInput.nativeElement, 'keyup').pipe(
       map((event: any) => event.target.value),

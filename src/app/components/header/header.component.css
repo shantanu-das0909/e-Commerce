@@ -152,6 +152,7 @@
   border-radius: 1rem;
   font-size: 1em;
   box-shadow: var(--shadow-elevation-medium);
+  overflow: hidden;
 }
 
 .searchable-product {
