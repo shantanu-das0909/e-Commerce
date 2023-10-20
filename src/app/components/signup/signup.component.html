@@ -1,1 +1,110 @@
-<p>signup works!</p>
+<div class="login-container">
+  <div class="login-content">
+    <div class="left-panel">
+      <h1>Signup</h1>
+      <p>Looks like you're new here !</p>
+      <p>Signup with your email to get started</p>
+      <img src="../../../assets/img/login-img.png" alt="" />
+    </div>
+    <div class="right-panel">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+            autocomplete="off"
+            placeholder="&nbsp;"
+          />
+          <label for="email">Name</label>
+          <div class="help-block" *ngIf="!signupForm.get('name')?.valid && signupForm.get('name')?.touched">
+            <div><i class="fa-solid fa-circle-info"></i></div>
+            <div>Please enter a valid name</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            autocomplete="off"
+            placeholder="&nbsp;"
+          />
+          <label for="email">Email</label>
+          <div class="help-block" *ngIf="!signupForm.get('email')?.valid && signupForm.get('email')?.touched">
+            <div><i class="fa-solid fa-circle-info"></i></div>
+            <div>Please enter a valid email</div>
+          </div>
+        </div>
+        <div class="form-group password-group">
+          <div class="eye-icon" (click)="onShowPassword()">
+            <i class="fa-regular fa-eye" *ngIf="!showPassword"></i>
+            <i class="fa-solid fa-eye-slash" *ngIf="showPassword"></i>
+          </div>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            autocomplete="off"
+            placeholder="&nbsp;"
+          />
+          <label for="password">Password</label>
+          <div class="help-block" *ngIf="!signupForm.get('password')?.valid && signupForm.get('password')?.touched">
+            <div><i class="fa-solid fa-circle-info"></i></div>
+            <div>
+              Please enter atleast 8 characters with number, symbol, small &
+              capital letter
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group password-group">
+          <div class="eye-icon" (click)="onShowConfirmPassword()">
+            <i class="fa-regular fa-eye" *ngIf="!showConfirmPassword"></i>
+            <i class="fa-solid fa-eye-slash" *ngIf="showConfirmPassword"></i>
+          </div>
+          <input
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            class="form-control"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            autocomplete="off"
+            placeholder="&nbsp;"
+          />
+          <label for="confirmPassword">Confirm Password</label>
+          <div
+            class="help-block"
+            *ngIf="
+              signupForm.get('password')?.touched &&
+              signupForm.get('password')?.value !== signupForm.get('confirmPassword')?.value
+            "
+          >
+            <div><i class="fa-solid fa-circle-info"></i></div>
+            <div>Password don't match</div>
+          </div>
+        </div>
+
+        <div class="privacy-policy">
+          By continuing, you agree to Luffy's Term of Use and Privacy Poilcy.
+        </div>
+        <button
+          class="btn btn-info submit-btn"
+          type="submit"
+          [disabled]="checkFormValidityForSubmitButton()"
+        >
+          Signup
+        </button>
+      </form>
+
+      <div class="signup-btn">
+        <a routerLink="/login">Existing User? Log in</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <app-footer></app-footer> -->

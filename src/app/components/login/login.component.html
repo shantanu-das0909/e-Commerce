@@ -21,8 +21,8 @@
             #email="ngModel"
           />
           <label for="email">Email</label>
-          <span class="help-block" *ngIf="!email.valid && email.touched"
-            >Please enter a valid email !</span
+          <div class="help-block" *ngIf="!email.valid && email.touched"
+            ><div><i class="fa-solid fa-circle-info"></i></div> <div>Please enter a valid email</div></div
           >
         </div>
         <div class="form-group password-group">
@@ -38,18 +38,19 @@
             autocomplete="off"
             placeholder="&nbsp;"
             required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+\-]).{8,100}$"
             ngModel
             #password="ngModel"
           />
           <label for="password">Password</label>
-          <span class="help-block" *ngIf="!password.valid && password.touched"
-            >Please enter a valid password !</span
+          <div class="help-block" *ngIf="!password.valid && password.touched"
+            ><div><i class="fa-solid fa-circle-info"></i></div> <div>Please enter atleast 8 characters with number, symbol, small & capital letter</div></div
           >
         </div>
         <div class="privacy-policy">
           By continuing, you agree to Luffy's Term of Use and Privacy Poilcy.
         </div>
-        <button class="btn btn-info submit-btn" type="submit">Login</button>
+        <button class="btn btn-info submit-btn" type="submit" [disabled]="!loginForm.valid">Login </button>
       </form>
 
       <div class="signup-btn">

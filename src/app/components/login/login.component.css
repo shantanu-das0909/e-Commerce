@@ -88,6 +88,8 @@ input {
 input:not(:placeholder-shown) + label,
 input:focus + label {
   transform: translateY(-2px);
+  /* font-weight: 500; */
+
 }
 
 input:focus {
@@ -106,9 +108,18 @@ input:focus {
 }
 
 .help-block {
-  font-size: 0.5em;
+  font-size: 0.8em;
   padding: 10px 0 0 0;
   color: var(--form-color-400);
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: red;
+}
+
+.help-block i {
+  font-size: 10px;
 }
 
 .privacy-policy {
@@ -129,13 +140,14 @@ input:focus {
   border-radius: 5px;
 }
 
+
 .signup-btn {
   position: absolute;
-  bottom: 40px;
+  bottom: 15px;
   left: 110px;
   /* transform: translateY(90px); */
   text-align: center;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   color: var(--form-color-400);
   cursor: pointer;
