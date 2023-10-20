@@ -18,14 +18,20 @@
             required
             email
             ngModel
-            #email = "ngModel"
+            #email="ngModel"
           />
           <label for="email">Email</label>
-          <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+          <span class="help-block" *ngIf="!email.valid && email.touched"
+            >Please enter a valid email !</span
+          >
         </div>
-        <div class="form-group">
+        <div class="form-group password-group">
+          <div class="eye-icon" (click)="onShowPassword()">
+            <i class="fa-regular fa-eye" *ngIf="!showPassword"></i>
+            <i class="fa-solid fa-eye-slash" *ngIf="showPassword"></i>
+          </div>
           <input
-            type="password"
+            [type]="showPassword ? 'text' : 'password'"
             class="form-control"
             id="password"
             name="password"
@@ -36,7 +42,9 @@
             #password="ngModel"
           />
           <label for="password">Password</label>
-          <span class="help-block" *ngIf="!password.valid && password.touched">Please enter a valid email!</span>
+          <span class="help-block" *ngIf="!password.valid && password.touched"
+            >Please enter a valid password !</span
+          >
         </div>
         <div class="privacy-policy">
           By continuing, you agree to Luffy's Term of Use and Privacy Poilcy.
@@ -50,3 +58,5 @@
     </div>
   </div>
 </div>
+
+<!-- <app-footer></app-footer> -->

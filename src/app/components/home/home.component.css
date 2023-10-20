@@ -13,6 +13,7 @@
       ((var(--card-number) + 1) * var(--gap-width))
   );
   --color-pink: rgb(235, 78, 104);
+  /* --color-pink: rgb(74, 116, 194); */
   --shadow-color: 0deg 0% 0%;
   --shadow-elevation-low: -0.2px 0px 0.2px hsl(var(--shadow-color) / 0.11),
     -0.3px 0px 0.3px -1.5px hsl(var(--shadow-color) / 0.1),

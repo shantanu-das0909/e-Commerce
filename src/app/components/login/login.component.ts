@@ -9,8 +9,11 @@ import { Login } from 'src/app/models/login.model';
 })
 export class LoginComponent implements OnInit{
 
+  showPassword: boolean = false;
+
   @ViewChild('f', {static: true}) loginForm = {} as NgForm;
   loginData: Login = {} as Login;
+
 
   ngOnInit(): void {
     
@@ -20,6 +23,10 @@ export class LoginComponent implements OnInit{
     this.loginData.email = this.loginForm.value.email;
     this.loginData.password = this.loginForm.value.password;
     console.log(this.loginData);
+  }
+
+  onShowPassword(): void {
+    this.showPassword = !this.showPassword;
   }
 
 }

@@ -9,10 +9,10 @@
 }
 .login-container {
   display: grid;
-    place-items: center;
+  place-items: center;
   background-color: whitesmoke;
   width: 100%;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 60px);
 }
 .login-content {
   display: flex;
@@ -64,7 +64,7 @@
   /* height: 40px; */
 }
 label {
-  transform: translateY(2.3em);
+  transform: translateY(2.1em);
   pointer-events: none;
   order: -1;
   color: var(--form-color-400);
@@ -94,28 +94,39 @@ input:focus {
   border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
+.password-group {
+  position: relative;
+}
+.eye-icon {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  font-size: 17px;
+  cursor: pointer;
+}
+
 .help-block {
   font-size: 0.5em;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   color: var(--form-color-400);
 }
 
-
-
 .privacy-policy {
-  font-size: 9.2px;
+  font-size: 9px;
   text-align: center;
   /* background-color: yellow; */
   margin-top: 30px;
   margin-bottom: 5px;
 }
 
-.submit-btn {
+.submit-btn,
+.submit-btn:active {
   width: 100%;
   font-size: 0.5em;
   color: white;
   background-color: var(--form-color-300);
   padding: 0.3em 0;
+  border-radius: 5px;
 }
 
 .signup-btn {
