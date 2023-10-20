@@ -11,23 +11,23 @@
     <div class="search-box">
       <form action="" (submit)="getProductsWithSearchedProductName()">
         <input
-        type="text"
-        class="searchProduct"
-        name="searchProduct"
-        id="searchProductID"
-        placeholder="&#xf002; &nbsp; Search for Products, Brands and More"
-        autocomplete="off"
-        [(ngModel)]="selectedSearchedProduct"
-        #searchBarInput
-        (focus)="onFocus(searchBarInput.value)"
-        (blur)="onBlur()"
-      />
+          type="text"
+          class="searchProduct"
+          name="searchProduct"
+          id="searchProductID"
+          placeholder="&#xf002; &nbsp; Search for Products, Brands and More"
+          autocomplete="off"
+          [(ngModel)]="selectedSearchedProduct"
+          #searchBarInput
+          (focus)="onFocus(searchBarInput.value)"
+          (blur)="onBlur()"
+        />
       </form>
 
       <div class="searchable-products" [hidden]="!showSearchedProducts">
         <div
           class="searchable-product"
-          (click) = "setSearchedProduct(product)"
+          (click)="setSearchedProduct(product)"
           *ngFor="let product of filteredSerachedProducts"
         >
           {{ product }}
@@ -54,6 +54,9 @@
             [hidden]="!showUserMenu"
             (mouseout)="closeUserMenu()"
           >
+            <li class="user-item" routerLink="/login">
+              <a><i class="fa-solid fa-arrow-right-to-bracket"></i></a>Login
+            </li>
             <li class="user-item">
               <a><i class="fa-solid fa-user"></i></a>My Profile
             </li>
